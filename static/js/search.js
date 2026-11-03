@@ -16,6 +16,19 @@ function isValidUrl(url) {
 }
 
 let debounceTimeout;
+let searchIndex; // fetched once, on the first search
+
+async function loadSearchIndex() {
+  if (!searchIndex) {
+    // Use the search index URL provided by Hugo template, fallback to /index.json
+    const response = await fetch(window.searchIndexURL || '/index.json');
+    if (!response.ok) {
+      throw new Error("Failed to fetch search data");
+    }
+    searchIndex = await response.json();
+  }
+  return searchIndex;
+}
 function searchOnChange(evt) {
   clearTimeout(debounceTimeout);
   debounceTimeout = setTimeout(() => {
@@ -40,7 +53,7 @@ async function performSearch(evt) {
       document.getElementById("search-content").style.width = "500px";
     } else {
       searchButtonPosition = searchButtonEle[1].getBoundingClientRect();
-      document.getElementById("search-content").style.width = "300px";
+      document.getElementById("search-content").style.width = searchButtonPosition.width + "px";
     }
 
     document.getElementById("search-content").style.top =
@@ -49,16 +62,7 @@ async function performSearch(evt) {
       searchButtonPosition.left + "px";
 
     try {
-      // Use the search index URL provided by Hugo template, fallback to /index.json
-      let indexURL = window.searchIndexURL || '/index.json';
-
-      let response = await fetch(indexURL);
-      if (!response.ok) {
-        throw new Error("Failed to fetch search data");
-      }
-
-      let searchJson = await response.json();
-      console.log("Fetched Data:", searchJson); // Debugging log
+      let searchJson = await loadSearchIndex();
 
       let searchResults = searchJson.filter((item) => {
         if (!item || typeof item !== "object") return false;

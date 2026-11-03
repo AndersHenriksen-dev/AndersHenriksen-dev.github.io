@@ -48,13 +48,25 @@
         }
     })
 
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-
 </script>
 {{- end }}
+
+<script>
+    // Tooltips work whether or not the theme toggle is shown.
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (el) {
+        new bootstrap.Tooltip(el);
+    });
+
+    // On phones the menu covers the page, so close it once a link in it is chosen.
+    document.querySelectorAll('#navbarContent a.nav-link:not(.dropdown-toggle)').forEach(function (link) {
+        link.addEventListener('click', function () {
+            var menu = document.getElementById('navbarContent');
+            if (menu.classList.contains('show')) {
+                bootstrap.Collapse.getOrCreateInstance(menu).hide();
+            }
+        });
+    });
+</script>
 
 {{ if not (.Site.Params.navbar.disableSearch | default false) }}
     <script>

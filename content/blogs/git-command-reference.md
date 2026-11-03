@@ -15,8 +15,6 @@ Like many other skills in programming, truly understanding Git requires messing 
 ## The Foundation
 These commands are used every time a new Git repository is used, and often several times per day.
 
-Remember not to rebase public or shared branches, because it rewrites history and makes you run `git push --force-with-lease` after the rebase.
-
 For `git add -p`, another option is the VS Code source control view. Choose a file with changes, hover over a hunk and click the plus to stage the hunk or the minus to revert the change. This is much easier to read than the command line.
 
 | Command                          | What it Does                                                              |
@@ -31,7 +29,7 @@ For `git add -p`, another option is the VS Code source control view. Choose a fi
 | `git add -p`                     | Interactive staging of hunks (parts of files).                            |
 | `git add <file>`                 | Stage file changes for commit.                                            |
 | `git commit -m "message"`        | Record a snapshot of staged changes.                                      |
-| `git fetch`                      | Download the changes from the remote server without adding them anywhere. |
+| `git fetch`                      | Download new commits and update `origin/<branch>`, without touching your branches or files. |
 | `git pull`                       | Fetch + merge remote changes.                                             |
 | `git pull --rebase`              | Fetch + rebase instead of merge (cleaner).                                |
 | `git push`                       | Upload commits to remote.                                                 |
@@ -40,7 +38,7 @@ For `git add -p`, another option is the VS Code source control view. Choose a fi
 | `git log --stat`                 | View commit history with number of changes per file.                      |
 | `git log -p`                     | View commit history in combination with diff.                             |
 | `git diff`                       | Compare working directory and index or commits.                           |
-| `git restore <file>`             | Modern alternative to checkout for files.                                 |
+| `git restore <file>`             | Throw away uncommitted changes to a file (cannot be undone).              |
 | `git restore --staged <file>`    | Unstage a previously staged file.                                         |
 
 ## Branching and Merging
@@ -60,13 +58,13 @@ At the core of teamwork in development are feature branches. Managing these bran
 Inevitably, some branches end up too large, small bug fixes land on the wrong branches, or too many messy checkpoint commits are created to make pulling possible or to get started on new work. This leads to an unclear commit history, where the purpose of each change is hidden from other developers and from yourself in the future. When you catch these errors, the commands below help you clean up and reshape the commit history.
 
 Depending on how strict your team is about keeping the commit history clean, these commands can be used about once a week.
-Remember not to rebase public or shared branches, because it rewrites history and makes you run `git push --force-with-lease` after the rebase.
+Do not rebase branches other people have pulled. Rebasing rewrites history, so their copies no longer match, and you have to push with `git push --force-with-lease`.
 
 | Command                    | What it Does                                                     |
 |:---------------------------|:-----------------------------------------------------------------|
 | `git rebase <branch>`      | Replay commits from your branch on top of another.               |
 | `git rebase -i HEAD~N`     | Interactive rebase: reorder, squash and edit the last N commits. |
-| `git cherry-pick <hash>`   | Move a specific commit from elsewhere to your current location.  |
+| `git cherry-pick <hash>`   | Copy a specific commit onto your current branch as a new commit. |
 | `git commit --amend`       | Modify the last commit.                                          |
 | `git reset --soft <hash>`  | Move HEAD but keep changes staged.                               |
 | `git reset --mixed <hash>` | Move HEAD and unstage changes.                                   |
@@ -74,7 +72,7 @@ Remember not to rebase public or shared branches, because it rewrites history an
 
 The last three commands also work with the `HEAD~N` syntax.
 
-`git reset --hard` is dangerous and should not be used unless you are absolutely sure that you no longer need the commit in question. Only use this command if you are confident that you know how to use the reflog to get your commit back in case of errors.
+`git reset --hard` is dangerous. It throws away every uncommitted change in tracked files, and the reflog cannot bring those back, because it only records commits. Use it only when nothing uncommitted is worth keeping. Commits it moves away from can still be found with the reflog.
 
 ## Recovery, Reflog, and Time Travel
 If you are great at Git and never make mistakes, these commands will never come in handy. Because everyone stumbles sometimes, knowing how to get your lost work back pays off fast.
@@ -83,7 +81,7 @@ If you are great at Git and never make mistakes, these commands will never come 
 |:-----------------------------|:------------------------------------------------|
 | `git reflog`                 | Show all HEAD movements (your time machine).    |
 | `git log -g`                 | View reflog as a commit log.                    |
-| `git checkout <commit>`      | Inspect an old snapshot.                        |
+| `git checkout <commit>`      | Inspect an old snapshot (detached HEAD: create a branch before committing). |
 | `git branch <name> <commit>` | Create a branch from a lost commit.             |
 | `git revert <commit>`        | Create a new commit that undoes a previous one. |
 
@@ -129,12 +127,12 @@ With the Timeline view at the bottom of the Explorer, you can compare several co
 While I do love the `git grep <pattern>` command, it covers almost the same need as the `Ctrl+Shift+F` search in VS Code (if most of the files in your project are tracked by Git).
 
 ## Git Wizardry
-Total mastery for rewriting, filtering, optimizing and scripting.
+Commands for rewriting, filtering, optimizing and scripting.
 
 | Command                                             | What it Does                                                   |
 |:----------------------------------------------------|:---------------------------------------------------------------|
-| `git filter-repo --path secrets.txt --invert-paths` | Rewrite entire repo history (e.g., remove secrets).            |
-| `git worktree add <dir> <branch>`                   | Make it possible to open each branch in a separate window.     |
+| `git filter-repo --path secrets.txt --invert-paths` | Rewrite entire repo history to remove a file. Rotate any leaked secret first: old clones still have it. |
+| `git worktree add <dir> <branch>`                   | Check out a branch in a second folder, so two branches are open at once. |
 | `git submodule add <url> <path>`                    | Include another repo inside yours.                             |
 | `git subtree`                                       | Merge and split subprojects.                                   |
 | `git config --global alias.<name> "<cmd>"`          | Create custom Git shortcuts.                                   |
@@ -147,6 +145,6 @@ Total mastery for rewriting, filtering, optimizing and scripting.
 After you have put in plenty of effort and focused practice for each of the sections above, you:
 
 - Understand that commits are immutable snapshots, not diffs.
-- Can fix anything using reflog + reset + checkout.
+- Can get lost commits back using reflog + reset + checkout.
 - Know when to use merge and when to use rebase.
 - Can keep history clean with interactive rebases.
