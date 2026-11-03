@@ -5,3 +5,9 @@
 {{ with .Site.Home.OutputFormats.Get "rss" }}
 <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">
 {{ end }}
+{{- /* The palette in static/style.css is built from this one color. */}}
+<style>
+    :root {
+        --palette-base: {{ site.Params.color.base | default "#3b74b8" }};
+    }
+</style>

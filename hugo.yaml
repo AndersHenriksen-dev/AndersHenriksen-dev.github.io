@@ -46,19 +46,21 @@ params:
   # static/style.css: the site's own overrides, loaded after the theme's CSS.
   customCSS: true
 
-  # One blue accent, and cards that separate from the page. primaryColor fills
-  # buttons and draws borders (white text on it 4.8:1); textLinkColor is the same
-  # blue made light enough for small text (5.4:1 on the page, 4.6:1 on cards).
-  # Text on the page: 15.6:1, secondary text 8.8:1.
   color:
+    # The one color the whole palette is built from: pick any color, black and
+    # white included. It gives the hue and saturation; every role (page, cards,
+    # text, links, buttons) keeps a fixed HSV value, so all of them stay readable.
+    # The roles and their contrast are listed at the top of static/style.css.
+    base: "#3b74b8"
+    # The same palette as fixed colors, for browsers without CSS relative colors.
     darkmode:
-      backgroundColor: "#0f1419"
-      secondaryBackgroundColor: "#1a2434"
-      secondaryColor: "#1a2434"
-      textColor: "#e8ecf2"
-      secondaryTextColor: "#a9b4c4"
-      textLinkColor: "#4f8fd0"
-      primaryColor: "#3b74b8"
+      backgroundColor: "#0d1114"
+      secondaryBackgroundColor: "#1b2129"
+      secondaryColor: "#1b2129"
+      textColor: "#e4eaf2"
+      secondaryTextColor: "#a7b3c2"
+      textLinkColor: "#81a8d6"
+      primaryColor: "#81a8d6"
 
   # Serve the bundled Bootstrap files instead of a CDN.
   useBootstrapCDN: false

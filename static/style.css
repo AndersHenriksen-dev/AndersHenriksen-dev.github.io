@@ -1,13 +1,55 @@
 /* The site's own styles, loaded after the theme's CSS (params.customCSS in hugo.yaml).
-   The palette lives in params.color.darkmode. These rules add what the theme lacks on a dark page:
-   borders that separate cards from the background, one accent for links and active states, and
-   headings that are louder than body text. */
+   These rules add what the theme lacks on a dark page: borders that separate cards from the
+   background, one accent for links and active states, and headings that are louder than body text. */
+
+/* ---------- Palette ----------
+   Every color comes from one base color, params.color.base in hugo.yaml (set as --palette-base in
+   layouts/partials/head/extensions.html). The base gives the hue and the HSV saturation. Each role
+   has a fixed HSV value and a cap on the saturation, so any base color, black and white included,
+   gives the same steps in brightness.
+
+   HSV value is not perceived brightness: blue at a given value is the darkest hue. So the values and
+   caps were chosen so that the worst hue and saturation still pass. Lowest contrast over all hues:
+
+   role        value  saturation cap   lowest contrast
+   page          8%        35%
+   card         16%        35%         1.13 against the page
+   border       34%        35%         1.73 against the page, 1.53 against a card
+   muted        66%        20%         4.6 on a card
+   secondary    76%        14%         8.0 on the page, 6.8 on a card
+   text         95%         6%         14.8 on the page, 12.1 on a card
+   accent       84%        40%         5.5 on the page, 4.9 on a card (links, the name, active states)
+   fill         38%        65%         text on it 5.6 (filled buttons)
+
+   In hwb(), whiteness is (1 - saturation) x value and blackness is 1 - value. */
 
 :root {
-    --border-color: #334258;
-    --muted-color: #8aa0bd;
-    --accent-soft: rgba(59, 116, 184, 0.18);
-    --accent-line: rgba(79, 143, 208, 0.5);
+    /* The HSV saturation of a color, from its hwb() whiteness w and blackness b. Black gives 0. */
+    --hsv-s: calc((100 - b - w) / max(100 - b, 0.001));
+
+    /* Fallbacks for browsers without relative colors: the palette for the default base #3b74b8. */
+    --border-color: #384657;
+    --muted-color: #8796a8;
+    --fill-color: #223f61;
+    --accent-soft: rgba(129, 168, 214, 0.15);
+    --accent-line: rgba(129, 168, 214, 0.5);
+}
+
+@supports (color: hwb(from red h w b)) {
+    :root {
+        --background-color-dark: hwb(from var(--palette-base) h calc((1 - min(var(--hsv-s), 0.35)) * 8) 92);
+        --secondary-background-color-dark: hwb(from var(--palette-base) h calc((1 - min(var(--hsv-s), 0.35)) * 16) 84);
+        --secondary-color-dark: var(--secondary-background-color-dark);
+        --border-color: hwb(from var(--palette-base) h calc((1 - min(var(--hsv-s), 0.35)) * 34) 66);
+        --muted-color: hwb(from var(--palette-base) h calc((1 - min(var(--hsv-s), 0.20)) * 66) 34);
+        --text-secondary-color-dark: hwb(from var(--palette-base) h calc((1 - min(var(--hsv-s), 0.14)) * 76) 24);
+        --text-color-dark: hwb(from var(--palette-base) h calc((1 - min(var(--hsv-s), 0.06)) * 95) 5);
+        --text-link-color-dark: hwb(from var(--palette-base) h calc((1 - min(var(--hsv-s), 0.40)) * 84) 16);
+        --primary-color-dark: var(--text-link-color-dark);
+        --fill-color: hwb(from var(--palette-base) h calc((1 - min(var(--hsv-s), 0.65)) * 38) 62);
+        --accent-soft: rgb(from var(--text-link-color-dark) r g b / 0.15);
+        --accent-line: rgb(from var(--text-link-color-dark) r g b / 0.5);
+    }
 }
 
 /* Anchors land below the sticky navbar. */
@@ -94,14 +136,15 @@ input:focus-visible,
 
 /* The one filled button on the page: the main call to action. */
 #hero a.btn:not(.social-icon) {
-    background-color: var(--primary-color);
-    color: #ffffff !important;
+    background-color: var(--fill-color);
+    border-color: var(--primary-color);
+    color: var(--text-color) !important;
     font-weight: 600;
 }
 
 #hero a.btn:not(.social-icon):hover {
-    background-color: var(--primary-color) !important;
-    color: #ffffff !important;
+    background-color: var(--fill-color) !important;
+    color: var(--text-color) !important;
     opacity: .85;
 }
 
@@ -338,8 +381,8 @@ footer .card,
 }
 
 #single .page-links .btn {
-    background-color: var(--primary-color);
-    color: #ffffff;
+    background-color: var(--fill-color);
+    color: var(--text-color);
     border-color: var(--primary-color);
     font-weight: 600;
 }
