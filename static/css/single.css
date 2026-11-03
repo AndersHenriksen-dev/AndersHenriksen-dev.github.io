@@ -320,3 +320,19 @@
 }
 
 /* Singlepage scroll progress end */
+/* Links under the title, such as a project's GitHub repository */
+#single .page-links .btn {
+    transition: opacity 0.3s;
+    border-radius: .5rem;
+    border: 1px solid var(--primary-color);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+#single .page-links .btn:hover {
+    opacity: .7;
+}
+
+#single .page-links .btn:focus {
+    box-shadow: none;
+}

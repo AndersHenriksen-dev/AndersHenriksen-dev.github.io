@@ -31,6 +31,16 @@
               </span>
               {{ end }}
             </div>
+            {{ with .Params.links }}
+            <div class="page-links text-center mt-4">
+              {{ range . }}
+              <a class="btn mx-1 my-1" href="{{ .url }}" target="_blank" rel="noopener">
+                <i class="{{ .icon }}"></i>
+                {{ .name | default "Link" }}
+              </a>
+              {{ end }}
+            </div>
+            {{ end }}
           </div>
           {{ if .Params.image }}
           <div class="featured-image">
