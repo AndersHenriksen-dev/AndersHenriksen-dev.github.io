@@ -5,8 +5,8 @@
 {{ if $blogsSection }}
   {{ $allSectionPosts = $blogsSection.RegularPages }}
 {{ end }}
-{{ $currentNumOfrecentPosts := len $allSectionPosts }} 
-{{ if and (gt $currentNumOfrecentPosts 0) (.Site.Params.footer.recentPosts.enable | default false) }} 
+{{ $currentNumOfrecentPosts := len $allSectionPosts }}
+{{ if and (gt $currentNumOfrecentPosts 0) (.Site.Params.footer.recentPosts.enable | default false) }}
 <div class="container py-3" id="recent-posts">
     {{ $recentPostsCount := .Site.Params.footer.recentPosts.count | default 3 }}
     {{ $recentPosts := $allSectionPosts | first $recentPostsCount }}

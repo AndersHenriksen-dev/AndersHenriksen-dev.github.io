@@ -13,8 +13,8 @@
         {{- if eq (len $translations) 1 -}}
             {{- /* No translations for this page, use home page translations */ -}}
             {{- range site.Home.AllTranslations -}}
-            <a class="dropdown-item text-center nav-link{{ if eq .Language.Lang $.Language.Lang }} active{{ end }}" 
-               href="{{ .RelPermalink }}" 
+            <a class="dropdown-item text-center nav-link{{ if eq .Language.Lang $.Language.Lang }} active{{ end }}"
+               href="{{ .RelPermalink }}"
                title="{{ .Language.LanguageName }}">
                 {{ .Language.LanguageName }}
             </a>
@@ -22,8 +22,8 @@
         {{- else -}}
             {{- /* Page has translations, use them */ -}}
             {{- range $translations -}}
-            <a class="dropdown-item text-center nav-link{{ if eq .Language.Lang $.Language.Lang }} active{{ end }}" 
-               href="{{ .RelPermalink }}" 
+            <a class="dropdown-item text-center nav-link{{ if eq .Language.Lang $.Language.Lang }} active{{ end }}"
+               href="{{ .RelPermalink }}"
                title="{{ .Language.LanguageName }}">
                 {{ .Language.LanguageName }}
             </a>

@@ -75,7 +75,7 @@
     #languageDropdown span {
         display: none;
     }
-    
+
     .dropdown-menu[aria-labelledby="languageDropdown"] {
         min-width: 120px;
     }

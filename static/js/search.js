@@ -51,7 +51,7 @@ async function performSearch(evt) {
     try {
       // Use the search index URL provided by Hugo template, fallback to /index.json
       let indexURL = window.searchIndexURL || '/index.json';
-      
+
       let response = await fetch(indexURL);
       if (!response.ok) {
         throw new Error("Failed to fetch search data");

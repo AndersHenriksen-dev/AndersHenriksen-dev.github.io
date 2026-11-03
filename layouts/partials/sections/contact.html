@@ -25,7 +25,7 @@
                     </div>
                     {{ else if or (.Site.Params.contact.email)  (.Site.Params.contact.btnLink) }}
                     <div class="text-center pt-3">
-                        <a 
+                        <a
                             href='{{ if .Site.Params.contact.btnLink }}
                                     {{ .Site.Params.contact.btnLink | default "#" }}
                                   {{ else }}
