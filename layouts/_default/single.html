@@ -35,7 +35,7 @@
             <div class="page-links text-center mt-4">
               {{ range . }}
               <a class="btn mx-1 my-1" href="{{ .url }}" target="_blank" rel="noopener">
-                <i class="{{ .icon }}"></i>
+                <i class="{{ .icon }}" aria-hidden="true"></i>
                 {{ .name | default "Link" }}
               </a>
               {{ end }}
@@ -44,10 +44,16 @@
           </div>
           {{ if .Params.image }}
           <div class="featured-image">
-            <img class="img-fluid mx-auto d-block" src="{{ .Params.image }}" alt="{{ .Title }}">
+            <img class="img-fluid mx-auto d-block" src="{{ .Params.image }}" alt="{{ .Params.imageAlt | default "" }}">
           </div>
           {{ end }}
-          <article class="page-content  p-2">
+          {{ if and (.Params.toc | default true) (gt (len .TableOfContents) 40) }}
+          <details class="toc-mobile d-lg-none">
+            <summary>{{ .Site.Params.terms.toc | default (i18n "toc") }}</summary>
+            {{ .TableOfContents }}
+          </details>
+          {{ end }}
+          <article class="page-content p-2">
           {{ .Content | emojify }}
           </article>
         </div>
@@ -55,7 +61,7 @@
       <div class="col-sm-12 col-md-12 col-lg-3">
         <div id="stickySideBar" class="sticky-sidebar">
           {{ if .Params.toc | default true}}
-          <aside class="toc">
+          <aside class="toc d-none d-lg-block">
               <h5>
                 {{ .Site.Params.terms.toc | default (i18n "toc") }}
               </h5>
@@ -84,23 +90,13 @@
             <div class="social-content">
               <ul class="list-inline">
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://www.linkedin.com/feed/?shareActive=true&text={{ .Params.description }} {{ .Site.Params.hostName }}{{ .Permalink | absURL }}">
-                    <i class="fab fa-linkedin"></i>
+                  <a target="_blank" rel="noopener" aria-label="Share on LinkedIn" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink }}">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href='https://twitter.com/share?text={{ .Title }}&url={{ .Site.Params.hostName }}{{ .Permalink | absURL }}&hashtags={{ delimit .Params.tags "," }}'>
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://api.whatsapp.com/send?text={{ .Title }}: {{ .Site.Params.hostName }}{{ .Permalink | absURL }}">
-                    <i class="fab fa-whatsapp"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item text-center">
-                  <a target="_blank" href='mailto:?subject={{ .Title }}&amp;body={{ .Site.Params.terms.emailText | default (i18n "email_text") }} {{ .Site.Params.hostName }}{{ .Permalink | absURL }}'>
-                    <i class="fa fa-envelope"></i>
+                  <a aria-label="Share by email" href="mailto:?subject={{ .Title }}&amp;body={{ .Site.Params.terms.emailText | default (i18n "email_text") }}: {{ .Permalink }}">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>
@@ -116,8 +112,8 @@
       </div>
     </div>
   </div>
-  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
-    <i class="fas fa-angle-up"></i>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll" aria-label="Back to top">
+    <i class="fas fa-angle-up" aria-hidden="true"></i>
   </button>
 </section>
 

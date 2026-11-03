@@ -1,5 +1,5 @@
 baseURL: "https://andershenriksen-dev.github.io/"
-locale: "en-us"
+locale: "en-US"
 title: "Anders Henriksen"
 
 outputs:
@@ -9,7 +9,9 @@ outputs:
     - "JSON"
   page:
     - "HTML"
-    - "RSS"
+
+taxonomies:
+  tag: tags
 
 enableRobotsTXT: true
 
@@ -29,13 +31,36 @@ menus:
     - identifier: blog
       name: Blog
       title: Blog posts
-      url: /blogs
+      url: /blogs/
       weight: 1
 
 params:
   title: "Anders Henriksen"
   description: "Anders Henriksen builds AI agents, retrieval systems and data pipelines in Copenhagen, and writes about what he learns."
   favicon: "/fav.png"
+  # Share image for pages without their own `images` in front matter.
+  images:
+    - "/images/me.jpg"
+  copyright: "Anders Henriksen."
+
+  # static/style.css: the site's own overrides, loaded after the theme's CSS.
+  customCSS: true
+
+  color:
+    # The one color the whole palette is built from: pick any color, black and
+    # white included. It gives the hue and saturation; every role (page, cards,
+    # text, links, buttons) keeps a fixed HSV value, so all of them stay readable.
+    # The roles and their contrast are listed at the top of static/style.css.
+    base: "#3b74b8"
+    # The same palette as fixed colors, for browsers without CSS relative colors.
+    darkmode:
+      backgroundColor: "#0d1114"
+      secondaryBackgroundColor: "#1b2129"
+      secondaryColor: "#1b2129"
+      textColor: "#e4eaf2"
+      secondaryTextColor: "#a7b3c2"
+      textLinkColor: "#81a8d6"
+      primaryColor: "#81a8d6"
 
   # Serve the bundled Bootstrap files instead of a CDN.
   useBootstrapCDN: false
@@ -68,8 +93,8 @@ params:
     enable: true
     intro: "Hi, my name is"
     title: "Anders Henriksen."
-    subtitle: "I build AI agents and data systems for finance teams."
-    content: "I hold a Master's in Artificial Intelligence from DTU and work in Copenhagen. I build agentic AI workflows, retrieval systems and data pipelines, measure whether they work, and teach the people around me to use them."
+    subtitle: "I help finance teams adopt AI, and build the agents and data systems behind it."
+    content: "Senior Data Analyst at Capital Four in Copenhagen, and before that Danske Bank. I hold a Master's in Artificial Intelligence from DTU. I have trained 45+ colleagues in Git and AI tools, and I measure the AI systems I build against a test set."
     image: /images/me.jpg
     roundImage: true
     bottomImage:
@@ -80,27 +105,35 @@ params:
       url: "#projects"
       download: false
       newPage: false
+    # Shown only when the file exists under static/.
+    cvButton:
+      enable: true
+      name: "Download CV"
+      url: "cv/Anders_Henriksen_CV.pdf"
     socialLinks:
       fontAwesomeIcons:
         - icon: fab fa-github
+          label: "GitHub"
           url: https://github.com/AndersHenriksen-dev
         - icon: fab fa-linkedin
+          label: "LinkedIn"
           url: https://www.linkedin.com/in/andershenriksen/
         - icon: fa fa-envelope
-          url: mailto:anders-10@live.dk
+          label: "Email"
+          url: mailto:anhenr.dev@gmail.com
 
   about:
     enable: true
     title: "About Me"
     content: |-
-      I am often the most technical person in a finance team, and I use that to make the whole team faster. I find the manual work, automate it, and teach my colleagues the tools so the change lasts. I have built or used AI models in every job I have had.
+      I work where finance and technology meet. I find the manual work in a team, automate it, and train my colleagues so the change lasts.
 
-      I care about clean code, tests and version control. In every team I have joined, I have moved the work into Git and set up the practices that let several people change the same code safely. I like turning vague requirements into small, clear tasks that a team can share.
+      In my last four teams I have taught Git and version control, and set up the practices that let several people change the same code safely. I like turning vague requirements into small, clear tasks that a team can share.
 
-      This site is where I write up my projects and what I learned from them. Each project page links to its code on GitHub.
+      I work in Danish and English. This site is where I write up my projects and what I learned from them, each with a link to its code.
     skills:
       enable: true
-      title: "Here are a few technologies I've been working with recently:"
+      title: "What I work with:"
       items:
         - "Python"
         - "SQL"
@@ -112,7 +145,6 @@ params:
         - "Docker"
         - "AWS and Azure"
         - "Power Automate and Power Apps"
-        - "PyTorch and scikit-learn"
         - "dbt, DuckDB and Hydra"
 
   experience:
@@ -126,10 +158,10 @@ params:
             info:
               content: "Credit investment manager in Copenhagen"
             content: |
-              - Leading the team's move to Git, GitHub and VS Code as the single source of truth. ISAE 3402 audit reporting now starts from one page.
               - Teaching colleagues to use AI assistants safely: when to plan, where to check the output, and which model to use for which task.
-              - Built agentic AI workflows in GitHub Copilot that write change documentation from the issue, the branch and the code changes, which used to be written by hand.
+              - Leading the team's move to Git, GitHub and VS Code as the single source of truth. ISAE 3402 audits and change management now start from one place.
               - Led a security audit of the company's 77 repositories and designed the security setup for GitHub Enterprise.
+              - Built agentic AI workflows in GitHub Copilot that write change documentation from the issue, the branch and the code changes. It used to be written by hand.
               - Built a Microsoft Teams button with Power Automate that activates and deactivates users in the portfolio management system, a manual task done 5 to 10 times a day.
 
       - company: "Danske Bank"
@@ -138,16 +170,16 @@ params:
           - name: "Data Analyst (Tech Lead), Group Treasury"
             date: "Mar 2026 - May 2026"
             content: |
-              - Trained 45+ non-technical colleagues in Git, VS Code, Python and AI tools, and made them part of the department's daily work.
+              - Trained 45+ non-technical colleagues in Git, VS Code, Python and AI tools, and made the tools part of the department's daily work.
               - Built a closed-loop agent workflow in GitHub Copilot that migrates legacy SAS code to Python. It fetches test data, checks that the outputs match and flags data drift.
               - Primary technical contact for Cover Pool Management: turned market risk, liquidity and debt issuance requirements into programming tasks.
           - name: "Data Scientist, Portfolio Intelligence"
             date: "Apr 2025 - Mar 2026"
             content: |
-              - Co-owned the migration of the bank's IFRS9 Expected Credit Loss and credit portfolio stress test models to Python on AWS, and cut their run time by 80%.
-              - Ran what-if analyses on inflation, interest rates and housing prices for the bank's risk tolerance.
-              - Presented ECL results to auditors, regulators and non-technical stakeholders.
               - Taught the team GitHub Copilot, modern Python and Git practices.
+              - Co-owned the migration of the bank's IFRS9 Expected Credit Loss and credit portfolio stress test models to Python on AWS, and cut their run time by 80%.
+              - Presented ECL results to auditors, regulators and non-technical stakeholders.
+              - Ran what-if analyses on inflation, interest rates and housing prices to test the bank's risk tolerance.
 
       - company: "Novo Nordisk"
         companyUrl: "https://www.novonordisk.com"
@@ -155,8 +187,9 @@ params:
           - name: "Data Scientist (Student Helper), R&D"
             date: "Dec 2021 - Oct 2024"
             content: |
-              - Built reproducible analysis workflows in Python for large R&D data sets used by cross-functional teams.
               - Taught the team Git, version control and deployment practices, which cut errors by 30%.
+              - Profiled a Python simulation of people with type 1 diabetes and rewrote its slow parts in Cython: 60 times faster.
+              - Built reproducible analysis workflows in Python on large R&D data sets, used to support decisions across cross-functional teams.
               - Wrote my master's thesis in collaboration with Novo Nordisk (see Education).
 
       - company: "Absis ApS"
@@ -175,7 +208,7 @@ params:
           name: "Technical University of Denmark (DTU)"
           url: "https://www.dtu.dk"
         date: "2024"
-        GPA: "11.3 out of 12.0"
+        GPA: "11.3 on the Danish 12-point scale"
         content: |-
           Thesis with Novo Nordisk (grade 12): forecasting whether people with sickle cell disease will have a vaso-occlusive crisis the next day, from questionnaires, biometrics, weather and location data. AUC of 0.98, built as a production-ready model with CI/CD.
 
@@ -185,7 +218,7 @@ params:
           name: "Technical University of Denmark (DTU)"
           url: "https://www.dtu.dk"
         date: "2022"
-        GPA: "10.7 out of 12.0"
+        GPA: "10.7 on the Danish 12-point scale"
         content: |-
           Bachelor project (grade 12): a CycleGAN that removes field strength bias in an MRI-based Alzheimer's disease classifier.
 
@@ -201,16 +234,17 @@ params:
 
   contact:
     enable: true
-    content: "My inbox is always open. Whether you have a question about one of my projects or just want to say hi, I will get back to you."
+    content: "Questions about a project, or want to talk about AI in finance teams? Email me, or find me on [LinkedIn](https://www.linkedin.com/in/andershenriksen/)."
     btnName: "Mail me"
-    btnLink: "mailto:anders-10@live.dk"
+    btnLink: "mailto:anhenr.dev@gmail.com"
 
   footer:
+    # Off while there is one post: it would repeat the Blog page.
     recentPosts:
       path: "blogs"
       count: 3
       title: "Recent Posts"
-      enable: true
+      enable: false
       disableFeaturedImage: false
     socialNetworks:
       github: https://github.com/AndersHenriksen-dev

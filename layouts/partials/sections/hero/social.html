@@ -1,11 +1,12 @@
-<span>
+<span class="hero-social">
     {{ range .Site.Params.hero.socialLinks.fontAwesomeIcons }}
     <span class="px-1">
         <a href="{{ .url }}"
-            {{ if not (hasPrefix .url "#") }} target="_blank" {{ end }}
+            {{- if not (or (hasPrefix .url "#") (hasPrefix .url "mailto:")) }} target="_blank" rel="noopener"{{ end }}
             class="btn social-icon"
+            aria-label="{{ .label | default .url }}"
         >
-            <i class="{{ .icon }}"></i>
+            <i class="{{ .icon }}" aria-hidden="true"></i>
         </a>
     </span>
     {{ end }}
@@ -13,10 +14,11 @@
     {{ range .Site.Params.hero.socialLinks.customIcons }}
     <span class="px-1">
         <a href="{{ .url }}"
-            {{ if not (hasPrefix .url "#") }} target="_blank" {{ end }}
+            {{- if not (or (hasPrefix .url "#") (hasPrefix .url "mailto:")) }} target="_blank" rel="noopener"{{ end }}
             class="btn social-icon"
+            aria-label="{{ .label | default .url }}"
         >
-            <img src="{{ .icon }}">
+            <img src="{{ .icon }}" alt="">
         </a>
     </span>
     {{ end }}

@@ -1,8 +1,8 @@
 name: CI
 
+# Every pull request, including one stacked on another branch.
 on:
   pull_request:
-    branches: [master]
 
 permissions:
   contents: read
@@ -10,7 +10,8 @@ permissions:
 jobs:
   build:
     name: Hugo build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     env:
       HUGO_VERSION: 0.168.0
     steps:
@@ -26,7 +27,8 @@ jobs:
 
   secrets:
     name: Secret scan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
         with:

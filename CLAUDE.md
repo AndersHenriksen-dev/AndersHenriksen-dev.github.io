@@ -36,14 +36,16 @@ Hugo is the extended edition, 0.168.0 or newer (`winget install Hugo.Hugo.Extend
 - `content/blogs/`: blog posts.
 - `static/images/`: the profile photo (`me.jpg`, square, black and white), project screenshots in `projects/`, post images in `blogs/`. `static/fav.png` is the logo and favicon.
 - `layouts/`: the theme's templates. Change them here; there is no theme submodule. `layouts/_default/single.html` renders posts and project pages.
-- `static/css/`: the theme's CSS. Colors are CSS variables, set in `layouts/partials/head.html` from `params.color` in `hugo.yaml`, with the theme's defaults for anything not set there.
+- `static/css/`: the theme's CSS, left as it is. `static/style.css`: the site's own CSS, loaded last (`params.customCSS`), with every override.
+- Colors: the whole palette is built from one color, `params.color.base` in `hugo.yaml`. Each role (page, card, border, text, link, button fill) has a fixed HSV value and a saturation cap, listed with its worst-case contrast at the top of `static/style.css`. `params.color.darkmode` holds the same palette as fixed colors for browsers without CSS relative colors.
 - `archetypes/projects.md`: the template for a new project page.
 
 ## Rules
 
 - The site is always dark (`params.theme.defaultTheme: dark`, no toggle). Check every change in dark mode, at desktop and at phone width (375 px).
+- To change the colors, change `params.color.base`, not single colors. If a role's value or cap changes, check its contrast over every hue again: blue is the darkest hue at any HSV value. Update the `darkmode` fallbacks to match.
 - Every page must build with `--panicOnWarning`.
-- Contact email is `anhenr.dev@gmail.com`, my professional address for job searching.
+- Contact email is `anhenr.dev@gmail.com`.
 - Nothing private goes on the site: no salary, no internal workplace matters, no job search details. My notes outside this repo are private; only CV-level facts are public.
 - Public job titles: Capital Four is exactly "Senior Data Analyst"; Danske Bank Group Treasury is "Data Analyst (Tech Lead)", which was not a promotion. Outside the Education section, the degree is "Master's in Artificial Intelligence from DTU". IFRS9 models are statistical models, not machine learning. Never name a weakness at a current or past employer.
 - Project numbers must match the project's own README and eval results. Link to the repository rather than copying long sections.

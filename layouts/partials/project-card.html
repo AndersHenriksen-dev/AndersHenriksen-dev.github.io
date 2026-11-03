@@ -1,0 +1,29 @@
+{{- /* One card for a page in content/projects/, used on the homepage and on /projects/. */ -}}
+<div class="col-lg-5 col-md-8 my-3">
+    <div class="card my-3 h-100">
+        <a class="card-head" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
+            <img class="card-img-top" src="{{ .Params.thumbnail | default .Params.image }}" alt="" loading="lazy">
+        </a>
+        <div class="card-body bg-transparent p-3">
+            <div class="pb-2 bg-transparent">
+                {{ range .Params.badges }}
+                <span class="badge">{{ . }}</span>
+                {{ end }}
+            </div>
+            <h4 class="card-title bg-transparent">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h4>
+            <p class="card-text bg-transparent secondary-font">
+                {{ .Description | default (.Summary | plainify) | truncate 200 }}
+            </p>
+        </div>
+        <div class="card-footer py-3 d-flex align-items-center">
+            {{ range .Params.links }}
+            <a class="card-link-icon" href="{{ .url }}" target="_blank" rel="noopener" aria-label="{{ .name | default .url }}">
+                <i class="{{ .icon }}" aria-hidden="true"></i>
+            </a>
+            {{ end }}
+            <a class="btn btn-sm ms-auto" href="{{ .RelPermalink }}">Read the write-up</a>
+        </div>
+    </div>
+</div>
