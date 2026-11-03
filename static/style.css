@@ -79,6 +79,7 @@ input:focus-visible,
 
 #about > .container > h3,
 #projects > .container > h3,
+#blog > .container > h3,
 #experience > .container > h3,
 #education > .container > h3,
 #contact > .container > h3 {
@@ -89,6 +90,7 @@ input:focus-visible,
 
 #about > .container > h3::after,
 #projects > .container > h3::after,
+#blog > .container > h3::after,
 #experience > .container > h3::after,
 #education > .container > h3::after,
 #contact > .container > h3::after {
@@ -193,6 +195,7 @@ input:focus-visible,
 
 #experience .experience-container,
 #projects .card,
+#blog .card,
 #education .card,
 #list-page .card,
 footer .card,
@@ -209,6 +212,7 @@ footer .card,
 }
 
 #projects .card:hover,
+#blog .card:hover,
 #education .card:hover,
 #list-page .card:hover {
     border-color: var(--primary-color) !important;
@@ -316,6 +320,73 @@ footer .card,
 
 .list-intro {
     color: var(--text-secondary-color);
+}
+
+/* ---------- Blog cards on the homepage: the project card's look ---------- */
+
+#blog .card {
+    background-color: var(--secondary-color) !important;
+    overflow: hidden;
+}
+
+#blog .card .card-head {
+    display: block;
+    overflow: hidden;
+}
+
+#blog .card .card-img-top {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+#blog .card:hover .card-img-top {
+    transform: scale(1.03);
+}
+
+#blog .post-meta {
+    display: block;
+    color: var(--muted-color);
+    margin-bottom: .35rem;
+}
+
+#blog .card-title a {
+    color: var(--text-color) !important;
+    text-decoration: none;
+}
+
+#blog .card-title a:hover {
+    color: var(--text-link-color) !important;
+}
+
+#blog .card-text {
+    color: var(--text-secondary-color) !important;
+}
+
+#blog .badge {
+    background-color: var(--accent-soft);
+    color: var(--text-link-color);
+    border: 1px solid var(--accent-line);
+    font-weight: 500;
+    font-size: .8rem;
+    margin: 0 .3rem .3rem 0;
+}
+
+#blog .card .card-footer {
+    background-color: transparent !important;
+    border-top: 1px solid var(--border-color);
+}
+
+#blog .card-footer .btn,
+#blog .all-posts {
+    border: 1px solid var(--primary-color);
+    color: var(--text-link-color) !important;
+    border-radius: .5rem;
+}
+
+#blog .card-footer .btn:hover,
+#blog .all-posts:hover {
+    background-color: var(--accent-soft);
 }
 
 /* ---------- Experience ---------- */

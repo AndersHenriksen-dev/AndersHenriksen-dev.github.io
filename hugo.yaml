@@ -232,6 +232,12 @@ params:
     enable: true
     title: "Projects"
 
+  # The newest posts from content/blogs/, after Projects on the homepage.
+  blog:
+    enable: true
+    title: "Blog"
+    count: 2
+
   contact:
     enable: true
     content: "Questions about a project, or want to talk about AI in finance teams? Email me, or find me on [LinkedIn](https://www.linkedin.com/in/andershenriksen/)."

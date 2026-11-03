@@ -1,0 +1,19 @@
+{{ if .Site.Params.blog.enable | default false }}
+{{- $blog := .Site.Params.blog -}}
+{{- $posts := where .Site.RegularPages "Section" "blogs" -}}
+{{ with $posts }}
+<section id="blog" class="py-5">
+    <div class="container">
+        <h3 class="text-center">{{ $blog.title | default "Blog" }}</h3>
+        <div class="row justify-content-center px-3 px-md-5">
+            {{ range first ($blog.count | default 2) .ByDate.Reverse }}
+            {{- partial "post-card.html" . -}}
+            {{ end }}
+        </div>
+        <div class="text-center mt-3">
+            <a class="btn all-posts" href="{{ "blogs/" | relURL }}">All posts</a>
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}
