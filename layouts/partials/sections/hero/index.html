@@ -25,6 +25,14 @@
                             {{ $hero.button.name | default .Site.Params.hero.button.name }}
                         </a>
                         {{ end }}
+                        {{- /* Shown only once the file is in static/, so the button never links to a missing file. */}}
+                        {{ with .Site.Params.hero.cvButton }}
+                        {{ if and .enable (fileExists (path.Join "static" .url)) }}
+                        <a href="{{ .url | relURL }}" class="btn cv-button" download>
+                            {{ .name | default "Download CV" }}
+                        </a>
+                        {{ end }}
+                        {{ end }}
                     </div>
                     <div class="col-auto px-0 h-100">
                         {{- partial "sections/hero/social.html" . -}}

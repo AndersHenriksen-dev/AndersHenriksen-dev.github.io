@@ -105,6 +105,11 @@ params:
       url: "#projects"
       download: false
       newPage: false
+    # Shown only when the file exists under static/.
+    cvButton:
+      enable: true
+      name: "Download CV"
+      url: "cv/Anders_Henriksen_CV.pdf"
     socialLinks:
       fontAwesomeIcons:
         - icon: fab fa-github

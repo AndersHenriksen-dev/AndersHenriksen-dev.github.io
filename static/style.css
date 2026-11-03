@@ -148,6 +148,18 @@ input:focus-visible,
     opacity: .85;
 }
 
+/* The CV button sits next to the main one, outlined so the main one still leads. */
+#hero a.btn.cv-button {
+    background-color: transparent;
+    color: var(--text-color) !important;
+    font-weight: 400;
+    margin-left: .5rem;
+}
+
+#hero a.btn.cv-button:hover {
+    background-color: var(--secondary-color) !important;
+}
+
 #hero a.btn.social-icon {
     color: var(--text-link-color) !important;
     width: 44px;
