@@ -1,0 +1,555 @@
+/* The site's own styles, loaded after the theme's CSS (params.customCSS in hugo.yaml).
+   The palette lives in params.color.darkmode. These rules add what the theme lacks on a dark page:
+   borders that separate cards from the background, one accent for links and active states, and
+   headings that are louder than body text. */
+
+:root {
+    --border-color: #334258;
+    --muted-color: #8aa0bd;
+    --accent-soft: rgba(59, 116, 184, 0.18);
+    --accent-line: rgba(79, 143, 208, 0.5);
+}
+
+/* Anchors land below the sticky navbar. */
+html {
+    scroll-padding-top: 80px;
+}
+
+* {
+    scrollbar-color: var(--border-color) transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color) !important;
+}
+
+/* The theme removes focus rings; keyboard users need them. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+.btn:focus-visible {
+    outline: 2px solid var(--primary-color) !important;
+    outline-offset: 2px;
+}
+
+/* ---------- Section titles ---------- */
+
+#about > .container > h3,
+#projects > .container > h3,
+#experience > .container > h3,
+#education > .container > h3,
+#contact > .container > h3 {
+    color: var(--text-color) !important;
+    font-size: clamp(26px, 4vw, 32px);
+    font-weight: 600;
+}
+
+#about > .container > h3::after,
+#projects > .container > h3::after,
+#experience > .container > h3::after,
+#education > .container > h3::after,
+#contact > .container > h3::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin: .75rem auto 0;
+    border-radius: 2px;
+    background-color: var(--primary-color);
+}
+
+/* ---------- Hero ---------- */
+
+#hero {
+    min-height: auto;
+    padding-top: 8vh !important;
+    padding-bottom: 10vh !important;
+}
+
+#hero .subtitle {
+    opacity: 1;
+    color: var(--muted-color);
+}
+
+#hero h2 {
+    opacity: 1;
+    color: var(--text-color);
+}
+
+#hero p {
+    opacity: 1;
+    color: var(--text-secondary-color);
+}
+
+#hero .image img {
+    border-color: var(--border-color);
+    box-shadow: none;
+}
+
+#hero a.btn,
+#hero a.btn.social-icon {
+    margin-top: 32px;
+}
+
+/* The one filled button on the page: the main call to action. */
+#hero a.btn:not(.social-icon) {
+    background-color: var(--primary-color);
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+#hero a.btn:not(.social-icon):hover {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+    opacity: .85;
+}
+
+#hero a.btn.social-icon {
+    color: var(--text-link-color) !important;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+@media (max-width: 575.98px) {
+    #hero h1 {
+        font-size: 36px;
+    }
+
+    #hero h2 {
+        font-size: 26px;
+    }
+
+    #hero p {
+        line-height: 1.6;
+    }
+
+    #hero a.btn,
+    #hero a.btn.social-icon {
+        margin-top: 20px;
+    }
+}
+
+/* ---------- Cards: one look everywhere ---------- */
+
+#experience .experience-container,
+#projects .card,
+#education .card,
+#list-page .card,
+footer .card,
+#search-results > .card,
+#single aside,
+.toc-mobile {
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+}
+
+#education .card .card-body {
+    border-radius: 12px;
+}
+
+#projects .card:hover,
+#education .card:hover,
+#list-page .card:hover {
+    border-color: var(--primary-color) !important;
+    box-shadow: none !important;
+}
+
+/* ---------- About ---------- */
+
+#about .content {
+    opacity: 1 !important;
+}
+
+/* ---------- Projects ---------- */
+
+#projects .card {
+    min-height: 0;
+}
+
+#projects .card .card-head {
+    display: block;
+}
+
+#projects .card .card-img-top {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top left;
+}
+
+#projects .card:hover .card-img-top {
+    transform: scale(1.03);
+}
+
+#projects .card-title a {
+    color: var(--text-color) !important;
+}
+
+#projects .card-title a:hover {
+    color: var(--text-link-color) !important;
+}
+
+#projects .card-text {
+    color: var(--text-secondary-color) !important;
+}
+
+#projects .badge {
+    background-color: var(--accent-soft) !important;
+    color: var(--text-link-color) !important;
+    border: 1px solid var(--accent-line);
+    font-weight: 500;
+    font-size: .8rem;
+    margin: 0 .3rem .3rem 0;
+}
+
+#projects .card .card-footer {
+    background-color: transparent !important;
+    border-top: 1px solid var(--border-color);
+}
+
+#projects .card-link-icon {
+    font-size: 1.4rem;
+    padding: .5rem;
+    margin-left: -.5rem;
+    color: var(--text-color) !important;
+}
+
+#projects .card-footer .btn {
+    border: 1px solid var(--primary-color);
+    color: var(--text-link-color) !important;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.list-intro {
+    color: var(--text-secondary-color);
+}
+
+/* ---------- Experience ---------- */
+
+#experience .tab-pane > * {
+    opacity: 1;
+}
+
+#experience .nav-pills {
+    gap: .25rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#experience .nav-link {
+    color: var(--text-secondary-color) !important;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
+    padding: .6rem .9rem;
+    white-space: nowrap;
+    opacity: 1;
+}
+
+#experience .nav-link:hover {
+    color: var(--text-color) !important;
+}
+
+#experience .nav-link.active {
+    color: var(--text-link-color) !important;
+    border-bottom-color: var(--primary-color);
+    font-weight: 600;
+}
+
+#experience .job + .job {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+#experience .job-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: .25rem 1rem;
+    padding-top: .75rem;
+}
+
+#experience .job-company {
+    color: var(--text-secondary-color);
+}
+
+#experience .tab-pane .job-date {
+    color: var(--muted-color);
+    white-space: nowrap;
+}
+
+#experience .job-info {
+    color: var(--muted-color);
+    font-size: .9rem;
+    margin-top: .15rem;
+}
+
+#experience .experience-container .tab-content .tab-pane ul {
+    padding-left: 0;
+    margin-top: .5rem;
+}
+
+/* ---------- Education ---------- */
+
+#education .card .card-body .py-1 i small {
+    color: var(--text-secondary-color);
+}
+
+/* ---------- Links inside text: underlined, so they do not rely on color alone ---------- */
+
+#single .page-content a,
+#about .content a,
+#contact .row a:not(.btn),
+#experience .tab-pane li a,
+#education .education-content a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--accent-line);
+}
+
+/* ---------- Posts and project pages ---------- */
+
+/* About 75 characters per line, centred between the page edge and the sidebar. */
+#single .col-lg-9 > .pr-lg-4 {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+#single .title > h1 {
+    opacity: 1;
+    color: var(--text-color) !important;
+}
+
+#single .title > div:not(.page-links) {
+    color: var(--muted-color);
+}
+
+#single .title small {
+    opacity: 1;
+}
+
+#single .page-links .btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    font-weight: 600;
+}
+
+#single .featured-image img {
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+}
+
+#single .page-content h2,
+#single .page-content h3,
+#single .page-content h4 {
+    color: var(--text-color) !important;
+    opacity: 1;
+}
+
+#single .page-content h2 {
+    margin-top: 2.2rem;
+    padding-bottom: .35rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#single .page-content ol,
+#single .page-content ul {
+    list-style-position: outside;
+    padding-left: 1.4em;
+    opacity: 1;
+}
+
+#single .page-content li {
+    margin-bottom: .45em;
+}
+
+#single .page-content li::marker {
+    color: var(--primary-color);
+}
+
+#single .page-content code {
+    color: var(--text-link-color) !important;
+}
+
+#single .page-content :not(pre) > code {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: .1em .35em;
+    font-size: .88em;
+}
+
+/* Tables scroll sideways on narrow screens; the shadows at the edges show there is more. */
+#single .page-content table {
+    /* As wide as its columns, at most the text width; wider tables scroll. */
+    width: max-content;
+    opacity: 1;
+    border-collapse: collapse;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    -webkit-overflow-scrolling: touch;
+    background:
+        linear-gradient(to right, var(--background-color) 30%, transparent) left center / 40px 100% no-repeat local,
+        linear-gradient(to left, var(--background-color) 30%, transparent) right center / 40px 100% no-repeat local,
+        radial-gradient(farthest-side at 0 50%, var(--accent-line), transparent) left center / 12px 100% no-repeat scroll,
+        radial-gradient(farthest-side at 100% 50%, var(--accent-line), transparent) right center / 12px 100% no-repeat scroll;
+}
+
+#single .page-content table > thead > tr > th {
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color) !important;
+    border: 0;
+    border-bottom: 2px solid var(--primary-color);
+    opacity: 1;
+    white-space: nowrap;
+}
+
+#single .page-content table > tbody > tr > td {
+    background-color: transparent !important;
+    border: 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#single .page-content table > tbody > tr:last-child > td {
+    border-bottom: 0;
+}
+
+#single .page-content td code {
+    white-space: nowrap;
+}
+
+@media (max-width: 575.98px) {
+    #single .page-content table {
+        font-size: 15px;
+    }
+
+    /* The first column holds the labels; it scrolls rather than shrinking to one word per line. */
+    /* In an auto-layout table a cell width acts as the column's minimum; min-width is ignored. */
+    #single .page-content th:first-child,
+    #single .page-content td:first-child {
+        width: 10rem;
+    }
+}
+
+/* Sidebar: one scroll area that fits the screen, instead of three clipped boxes. */
+#single .sticky-sidebar {
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+}
+
+#single aside.toc,
+#single aside.tags {
+    max-height: none;
+    overflow: visible;
+}
+
+#single aside h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+#single aside.toc .toc-content ol li a,
+#single aside.toc .toc-content ul li a {
+    display: block;
+    padding: .2rem 0;
+    color: var(--text-secondary-color) !important;
+    opacity: 1;
+}
+
+#single aside.toc .toc-content ol li a:hover,
+#single aside.toc .toc-content ul li a:hover {
+    color: var(--text-link-color) !important;
+}
+
+#single aside.tags ul.tags-ul li a {
+    background-color: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    color: var(--text-link-color) !important;
+    font-size: .85rem;
+}
+
+/* The table of contents at the top of a post on phones. */
+.toc-mobile {
+    background-color: var(--secondary-color);
+    padding: .25rem 1rem;
+    margin: 0 .5rem 1.5rem;
+}
+
+.toc-mobile summary {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.toc-mobile ul {
+    list-style: none;
+    padding-left: .75rem;
+    margin: 0 0 .5rem;
+}
+
+.toc-mobile a {
+    display: block;
+    padding: .4rem 0;
+    color: var(--text-secondary-color);
+    text-decoration: none;
+}
+
+#single #topScroll {
+    border: 1px solid var(--border-color);
+    bottom: 16px;
+    right: 12px;
+}
+
+/* ---------- Navbar and search ---------- */
+
+.navbar-toggler {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+#navbarContent.show,
+#navbarContent.collapsing {
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+}
+
+#search {
+    border: 1px solid var(--border-color) !important;
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color) !important;
+}
+
+#search::placeholder {
+    color: var(--muted-color);
+}
+
+#search-content {
+    max-height: 60vh;
+}
+
+/* ---------- Footer and 404 ---------- */
+
+footer .text-secondary a {
+    color: var(--text-secondary-color);
+    text-decoration: underline;
+    text-decoration-color: var(--border-color);
+}
+
+.not-found-image {
+    width: 100%;
+    max-width: 420px;
+}

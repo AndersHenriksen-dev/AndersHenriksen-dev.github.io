@@ -1,5 +1,5 @@
 baseURL: "https://andershenriksen-dev.github.io/"
-locale: "en-us"
+locale: "en-US"
 title: "Anders Henriksen"
 
 outputs:
@@ -9,7 +9,9 @@ outputs:
     - "JSON"
   page:
     - "HTML"
-    - "RSS"
+
+taxonomies:
+  tag: tags
 
 enableRobotsTXT: true
 
@@ -29,13 +31,34 @@ menus:
     - identifier: blog
       name: Blog
       title: Blog posts
-      url: /blogs
+      url: /blogs/
       weight: 1
 
 params:
   title: "Anders Henriksen"
   description: "Anders Henriksen builds AI agents, retrieval systems and data pipelines in Copenhagen, and writes about what he learns."
   favicon: "/fav.png"
+  # Share image for pages without their own `images` in front matter.
+  images:
+    - "/images/me.jpg"
+  copyright: "Anders Henriksen."
+
+  # static/style.css: the site's own overrides, loaded after the theme's CSS.
+  customCSS: true
+
+  # One blue accent, and cards that separate from the page. primaryColor fills
+  # buttons and draws borders (white text on it 4.8:1); textLinkColor is the same
+  # blue made light enough for small text (5.4:1 on the page, 4.6:1 on cards).
+  # Text on the page: 15.6:1, secondary text 8.8:1.
+  color:
+    darkmode:
+      backgroundColor: "#0f1419"
+      secondaryBackgroundColor: "#1a2434"
+      secondaryColor: "#1a2434"
+      textColor: "#e8ecf2"
+      secondaryTextColor: "#a9b4c4"
+      textLinkColor: "#4f8fd0"
+      primaryColor: "#3b74b8"
 
   # Serve the bundled Bootstrap files instead of a CDN.
   useBootstrapCDN: false
