@@ -1,0 +1,27 @@
+{{- /* One card for a blog post, used in the homepage Blog section. */ -}}
+<div class="col-lg-5 col-md-8 my-3">
+    <div class="card my-3 h-100">
+        {{ with .Params.image }}
+        <a class="card-head" href="{{ $.RelPermalink }}" tabindex="-1" aria-hidden="true">
+            <img class="card-img-top" src="{{ . }}" alt="" loading="lazy">
+        </a>
+        {{ end }}
+        <div class="card-body bg-transparent p-3">
+            <small class="post-meta">{{ .Date | time.Format ":date_long" }}, {{ .ReadingTime }} min read</small>
+            <h4 class="card-title bg-transparent">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h4>
+            <p class="card-text bg-transparent secondary-font">
+                {{ .Description | default (.Summary | plainify) | truncate 200 }}
+            </p>
+        </div>
+        <div class="card-footer py-3 d-flex align-items-center">
+            {{ with .GetTerms "tags" }}
+            <span>
+                {{ range . }}<span class="badge">{{ .LinkTitle }}</span>{{ end }}
+            </span>
+            {{ end }}
+            <a class="btn btn-sm ms-auto" href="{{ .RelPermalink }}">Read the post</a>
+        </div>
+    </div>
+</div>
