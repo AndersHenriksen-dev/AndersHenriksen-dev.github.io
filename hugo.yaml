@@ -43,6 +43,11 @@ params:
   mathjax: false
   animate: true
 
+  # Always dark, with no light/dark toggle in the navbar.
+  theme:
+    defaultTheme: "dark"
+    disableThemeToggle: true
+
   navbar:
     align: ms-auto
     brandName: "Anders Henriksen"
