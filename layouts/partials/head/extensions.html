@@ -1,4 +1,7 @@
 {{/*
-    You can add further theme extensions or customizations here if they should
-    appear in <head>.
+    Further theme extensions or customizations that should appear in <head>.
 */}}
+<link rel="canonical" href="{{ .Permalink }}">
+{{ with .Site.Home.OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{ end }}
