@@ -219,6 +219,38 @@ footer .card,
 
 #about .content {
     opacity: 1 !important;
+    max-width: 720px;
+}
+
+#about .skills-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 2rem 0 .9rem;
+}
+
+/* Skills as tags, like the badges on the project cards, instead of a narrow two-column list. */
+#about ul.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin: 0;
+    padding: 0;
+}
+
+#about ul.skills li {
+    margin: 0;
+    padding: .3rem .85rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background-color: var(--secondary-color);
+    font-size: .95rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+#about ul.skills li::before {
+    content: none;
 }
 
 /* ---------- Projects ---------- */

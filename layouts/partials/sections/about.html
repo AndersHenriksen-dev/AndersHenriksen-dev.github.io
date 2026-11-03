@@ -15,8 +15,8 @@
                 {{ $about.content | markdownify }}
 
                 {{ if .Site.Params.about.skills.enable }}
-                {{ $about.skills.title | default .Site.Params.about.skills.title }}
-                <ul>
+                <h4 class="skills-title">{{ $about.skills.title | default .Site.Params.about.skills.title }}</h4>
+                <ul class="skills">
                     {{ range .Site.Params.about.skills.items }}
                     <li>{{ . | markdownify }}</li>
                     {{ end }}
