@@ -43,7 +43,7 @@ Hugo is the extended edition, 0.168.0 or newer (`winget install Hugo.Hugo.Extend
 
 - The site is always dark (`params.theme.defaultTheme: dark`, no toggle). Check every change in dark mode, at desktop and at phone width (375 px).
 - Every page must build with `--panicOnWarning`.
-- Contact email is `anhenr.dev@gmail.com`, my professional address for job searching.
+- Contact email is `anhenr.dev@gmail.com`.
 - Nothing private goes on the site: no salary, no internal workplace matters, no job search details. My notes outside this repo are private; only CV-level facts are public.
 - Public job titles: Capital Four is exactly "Senior Data Analyst"; Danske Bank Group Treasury is "Data Analyst (Tech Lead)", which was not a promotion. Outside the Education section, the degree is "Master's in Artificial Intelligence from DTU". IFRS9 models are statistical models, not machine learning. Never name a weakness at a current or past employer.
 - Project numbers must match the project's own README and eval results. Link to the repository rather than copying long sections.
