@@ -133,7 +133,7 @@ params:
       I work in Danish and English. This site is where I write up my projects and what I learned from them, each with a link to its code.
     skills:
       enable: true
-      title: "What I work with:"
+      title: "What I work with"
       items:
         - "Python"
         - "SQL"
