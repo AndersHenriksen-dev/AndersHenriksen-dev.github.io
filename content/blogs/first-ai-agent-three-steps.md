@@ -27,7 +27,7 @@ The usual reaction is to blame the model or look for a better tool. But a new co
 
 ## Step 1: document every task
 
-Write down every task the team does, in the place the team already looks. I recommend **Confluence for non-technical teams** and **Markdown files in the repository for technical teams**. In a repository, a change to a document gets reviewed like a change to code, and it sits next to the work it describes.
+Write down every task the team does, in the place the team already looks. I recommend **Confluence for non-technical teams** and **Markdown files in the repository for technical teams**. In a repository, a change to a document gets reviewed like a change to code, and it sits next to the work it describes. If your company already has standard operating procedures (SOPs), start with those.
 
 "Every task" sounds huge, so do not treat it as a project. The next time you do a task, write it down while you do it. Each document starts short and gets better every time someone uses it. A few weeks later, the tasks that come up most are the ones that are covered.
 
@@ -71,9 +71,33 @@ Title:  Monthly customer report, October
 Task:   link to "Monthly customer report"
 Input:  link to the October export
 Due:    3 November
+
+Technical refinement
+- Use the new template, which has a column for the contract type.
+- Leave out customers who closed their account before October.
+
+Acceptance criteria
+- Every active customer has one row.
+- The total matches the billing system's total for October.
+- Any change of more than 10% has a reason next to it.
 ```
 
-That is a complete brief, in four lines. A colleague back from holiday could take it, and so could an agent.
+That is a complete brief. A colleague back from holiday could take it, and so could an agent.
+
+The best part of writing cards like this is what those last two sections do for an agent. **Technical refinement tells it exactly how the task is meant to be done**, so it does not have to choose between several reasonable approaches. **User acceptance criteria tell the model what the definition of done is**, so it knows when to stop and can check its own work, and the person reviewing it checks against the same list. Teams have written these for each other for years, and they turn out to be very good instructions for a model too.
+
+### You will pick up parts of agile anyway
+
+Scrum and agile make sense in this context, and you do not have to set out to use them. Parts of them appear on their own once a team works this way:
+
+- The board becomes a **backlog**.
+- Writing a clear card is **refinement**.
+- "Done means" and the acceptance criteria are a **definition of done**.
+- Cards shrink into **small increments**, because a large card is hard to finish or check, for a person and for an agent.
+- The review step at the end of a card is a **review**.
+- Fixing a document after a mistake is a small **retrospective**.
+
+A team that already runs Scrum has most of step 2 in place. It mainly needs to link its cards to task documents. A team that has never heard of Scrum can ignore the words and still get the benefit, and it can add the ceremonies later if they help.
 
 ## Then wait
 
@@ -85,14 +109,16 @@ You are ready when **someone new can do a task from its document, without asking
 
 ## Step 3: run agents on what you have
 
-Now pick one task. The best first task is one that:
+**Every SOP and every recurring task can become a Claude skill, or the equivalent in the tool you use.** That is what the documents from step 1 have been building towards: each one is already most of a skill, so you are not starting from nothing. A team with 30 documented tasks has a list of 30 things an agent could learn.
+
+Do not build them all at once. Pick one task. The best first task is one that:
 
 - comes up often, so that you get feedback quickly
 - has a document that has survived real use
 - is easy to check, because "Done means" is clear
 - can be undone, because a mistake only costs a redo
 
-Then let the agent work the way a colleague would: it takes a card, reads the linked document, does the work and puts the result up for review. A person stays in the loop at the point where a mistake would matter.
+Then let the agent work the way a colleague would: it takes a card, reads the linked document, does the work, checks it against the acceptance criteria and puts the result up for review. A person stays in the loop at the point where a mistake would matter. When that works, take the next task from the list.
 
 ![A board with four columns. In Ready, a person adds a card. In Agent, the agent reads the card and its linked document and does the work. In Review, a person checks the result, and can send it back to the agent. In Done, the card is finished, and the team fixes the document if it was wrong](/images/blogs/agent-board-flow.svg)
 
@@ -121,19 +147,20 @@ and say what you did. Never send anything outside the team.
 description: Prepares the monthly customer report. Use when a card asks for it.
 ---
 
-Follow docs/tasks/monthly-customer-report.md. The card says which month, and links
-to the export. Stop and ask if the document tells you to.
+Follow docs/tasks/monthly-customer-report.md. The card says which month, links to
+the export, and lists any refinement and the acceptance criteria. Check your work
+against those criteria. Stop and ask if the document tells you to.
 ```
 
-Save the second file as `.claude/skills/monthly-customer-report/SKILL.md`. Notice how little is in it. **The skill points at the document instead of copying it**, so there is still only one place to fix, and every correction reaches people and agents alike. Claude Code can reach the board through the `gh project` commands.
+Save the second file as `.claude/skills/monthly-customer-report/SKILL.md`, and make one skill like it per task. Notice how little is in it. **The skill points at the document instead of copying it**, so there is still only one place to fix, and every correction reaches people and agents alike. Claude Code can reach the board through the `gh project` commands.
 
 ### Less technical teams: three options
 
-These three are not equal, so choose by how much you want the agent to do:
+These three are not equal, so choose by how much you want the agent to do. In each one, a documented task has its own natural form:
 
-- **A Claude Project** is the simplest start: shared instructions and uploaded documents in one place. A person starts each chat, so it is more of a well-briefed assistant than a colleague working a board. Uploaded files are copies, so someone has to replace them when a document changes.
-- **A Claude plugin** packs skills, commands and connectors into something the whole team can install, and it needs no code. This is the closest match to what technical teams get. Connectors are what give it access to your tools: Atlassian's [Rovo MCP server](https://support.atlassian.com/rovo/docs/atlassian-remote-mcp-server) covers Confluence, and [Trello has its own](https://support.atlassian.com/trello/docs/connect-trello-to-ai-assistants-with-trello-mcp/).
-- **Microsoft Copilot Studio** makes sense if your company already lives in Microsoft 365. It can use [Confluence as a knowledge source](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-unstructured-data), and a [Microsoft 365 Copilot connector](https://learn.microsoft.com/en-in/microsoft-365/copilot/connectors/trello-overview) can index Trello cards so that an agent can find them. Check that this gives you enough, because indexing lets an agent read the board, which is not the same as working on it.
+- **A Claude Project** is the simplest start: shared instructions and uploaded documents in one place. A recurring task becomes a section of those instructions, or a Project of its own. A person starts each chat, so it is more of a well-briefed assistant than a colleague working a board. Uploaded files are copies, so someone has to replace them when a document changes.
+- **A Claude plugin** packs skills, commands and connectors into something the whole team can install, and it needs no code. Each recurring task becomes a skill, which is the closest match to what technical teams get. Connectors are what give it access to your tools: Atlassian's [Rovo MCP server](https://support.atlassian.com/rovo/docs/atlassian-remote-mcp-server) covers Confluence, and [Trello has its own](https://support.atlassian.com/trello/docs/connect-trello-to-ai-assistants-with-trello-mcp/).
+- **Microsoft Copilot Studio** makes sense if your company already lives in Microsoft 365. A recurring task becomes a topic, or an agent of its own. It can use [Confluence as a knowledge source](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-unstructured-data), and a [Microsoft 365 Copilot connector](https://learn.microsoft.com/en-in/microsoft-365/copilot/connectors/trello-overview) can index Trello cards so that an agent can find them. Check that this gives you enough, because indexing lets an agent read the board, which is not the same as working on it.
 
 These products change quickly, so check what your plan includes before you settle on one.
 
