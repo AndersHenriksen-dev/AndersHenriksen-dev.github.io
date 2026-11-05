@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" width="720" height="500" role="img" aria-label="Two boxes feed a third. Step 1, document every task, says what the work is. Step 2, track work on a board, says what needs doing now. Together, after a few weeks or months, they feed step 3, agents and skills. An arrow from step 3 back to step 1 shows corrections going back into the documents">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#81a8d6"/>
+    </marker>
+  </defs>
+  <rect width="720" height="500" fill="#0d1114"/>
+
+  <rect x="72" y="20" width="298" height="170" rx="12" fill="#1b2129" stroke="#3a4656" stroke-width="1.5"/>
+  <rect x="402" y="20" width="298" height="170" rx="12" fill="#1b2129" stroke="#3a4656" stroke-width="1.5"/>
+  <rect x="72" y="290" width="628" height="170" rx="12" fill="#1b2129" stroke="#81a8d6" stroke-width="2.5"/>
+
+  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" fill="#e4eaf2">
+    <text x="92" y="58" font-size="16" fill="#a7b3c2">STEP 1</text>
+    <text x="92" y="90" font-size="24" font-weight="700">Document every task</text>
+    <text x="92" y="124" font-size="18">What the work is</text>
+    <text x="92" y="162" font-size="16" fill="#a7b3c2">Confluence or Markdown</text>
+
+    <text x="422" y="58" font-size="16" fill="#a7b3c2">STEP 2</text>
+    <text x="422" y="90" font-size="24" font-weight="700">Put work on a board</text>
+    <text x="422" y="124" font-size="18">What needs doing now</text>
+    <text x="422" y="162" font-size="16" fill="#a7b3c2">Trello or GitHub Projects</text>
+
+    <text x="92" y="328" font-size="16" fill="#a7b3c2">STEP 3</text>
+    <text x="92" y="360" font-size="24" font-weight="700">Run agents and make skills</text>
+    <text x="92" y="394" font-size="18">Built on real tasks, with the task clear at all times</text>
+    <text x="92" y="432" font-size="16" fill="#a7b3c2">.claude/, a plugin, a Project or Copilot Studio</text>
+
+    <text x="386" y="246" font-size="17" fill="#a7b3c2" text-anchor="middle">after a few weeks or months</text>
+  </g>
+
+  <g fill="none" stroke="#81a8d6" stroke-width="2.5">
+    <path d="M221 190 V284" marker-end="url(#arrow)"/>
+    <path d="M551 190 V284" marker-end="url(#arrow)"/>
+    <path d="M72 375 H36 V105 H66" marker-end="url(#arrow)" stroke-dasharray="7 6"/>
+  </g>
+  <text transform="translate(24 240) rotate(-90)" text-anchor="middle" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#a7b3c2">corrections</text>
+</svg>

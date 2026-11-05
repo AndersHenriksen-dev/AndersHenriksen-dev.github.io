@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" role="img" aria-label="A board with four columns. In Ready, a person adds a card. In Agent, the agent reads the card and its linked document and does the work. In Review, a person checks the result, and can send it back to the agent. In Done, the card is finished, and the team fixes the document if it was wrong">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#81a8d6"/>
+    </marker>
+  </defs>
+  <rect width="720" height="400" fill="#0d1114"/>
+  <g fill="#1b2129" stroke="#3a4656" stroke-width="1.5">
+    <rect x="10" y="50" width="162" height="330" rx="10"/>
+    <rect x="186" y="50" width="162" height="330" rx="10" stroke="#81a8d6" stroke-width="2.5"/>
+    <rect x="362" y="50" width="162" height="330" rx="10"/>
+    <rect x="538" y="50" width="172" height="330" rx="10"/>
+  </g>
+  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" fill="#e4eaf2" text-anchor="middle">
+    <g font-size="21" font-weight="700">
+      <text x="91" y="88">Ready</text>
+      <text x="267" y="88">Agent</text>
+      <text x="443" y="88">Review</text>
+      <text x="624" y="88">Done</text>
+    </g>
+    <g font-size="14" fill="#a7b3c2">
+      <text x="91" y="32">a person</text>
+      <text x="267" y="32">the agent</text>
+      <text x="443" y="32">a person</text>
+      <text x="624" y="32">the team</text>
+    </g>
+    <g font-size="17" fill="#e4eaf2">
+      <text x="91" y="222">Adds a card</text>
+      <text x="91" y="246">that links to</text>
+      <text x="91" y="270">the document</text>
+
+      <text x="267" y="222">Reads both</text>
+      <text x="267" y="246">and does</text>
+      <text x="267" y="270">the work</text>
+
+      <text x="443" y="222">Checks it</text>
+      <text x="443" y="246">against</text>
+      <text x="443" y="270">"Done means"</text>
+
+      <text x="624" y="222">Fixes the</text>
+      <text x="624" y="246">document if</text>
+      <text x="624" y="270">it was wrong</text>
+    </g>
+    <text x="443" y="366" font-size="15" fill="#a7b3c2">sent back if wrong</text>
+  </g>
+  <g fill="#0d1114" stroke="#81a8d6" stroke-width="2">
+    <rect x="46" y="118" width="90" height="60" rx="6"/>
+    <rect x="222" y="118" width="90" height="60" rx="6" stroke-dasharray="6 5"/>
+    <rect x="398" y="118" width="90" height="60" rx="6" stroke-dasharray="6 5"/>
+    <rect x="579" y="118" width="90" height="60" rx="6" stroke-dasharray="6 5"/>
+  </g>
+  <g stroke="#a7b3c2" stroke-width="2.5" stroke-linecap="round">
+    <path d="M58 136 H124"/>
+    <path d="M58 150 H112"/>
+    <path d="M58 164 H96"/>
+  </g>
+  <g fill="none" stroke="#81a8d6" stroke-width="2.5">
+    <path d="M138 148 H216" marker-end="url(#arrow)"/>
+    <path d="M314 148 H392" marker-end="url(#arrow)"/>
+    <path d="M490 148 H573" marker-end="url(#arrow)"/>
+    <path d="M443 296 V342 H267 V302" marker-end="url(#arrow)" stroke-dasharray="7 6"/>
+  </g>
+</svg>
