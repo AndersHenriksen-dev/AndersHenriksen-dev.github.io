@@ -164,8 +164,8 @@ tests/
     test_prepare_images.py
 ```
 
-If scripts start to share code, move it into a package (`src/<name>/`) with an `__init__.py` that re-exports its
-public API. Grow this structure when code that needs it is written. An empty folder, or a `utils/` with one two-line
+If scripts start to share code, move it into a package (`src/<name>/`), and import from it with the full path
+(`from <name>.<module> import <function>`), so the import line says which file to open. Grow this structure when code that needs it is written. An empty folder, or a `utils/` with one two-line
 function nobody calls, is worse than no folder.
 
 ## 6. KISS, DRY, LEAN in practice
