@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560" role="img" aria-label="A loop. Context goes to Claude, which writes the files. Scenarios with known answers are then run by two subagents: A without the skill and B with it. A grader compares the two, and what it finds goes back as fixes to the files">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#81a8d6"/>
+    </marker>
+  </defs>
+  <rect width="720" height="560" fill="#0d1114"/>
+
+  <g fill="none" stroke="#81a8d6" stroke-width="2">
+    <path d="M300 92 V118" marker-end="url(#arrow)"/>
+    <path d="M300 196 V222" marker-end="url(#arrow)"/>
+    <path d="M220 300 L160 334" marker-end="url(#arrow)"/>
+    <path d="M380 300 L440 334" marker-end="url(#arrow)"/>
+    <path d="M160 412 L250 448" marker-end="url(#arrow)"/>
+    <path d="M440 412 L350 448" marker-end="url(#arrow)"/>
+    <path d="M410 490 H660 V158 H480" marker-end="url(#arrow)"/>
+  </g>
+
+  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <rect x="120" y="20" width="360" height="72" rx="10" fill="#1b2129" stroke="#3a4656" stroke-width="1.5"/>
+    <text x="300" y="50" font-size="20" font-weight="700" fill="#e4eaf2">1. You bring the context</text>
+    <text x="300" y="76" font-size="16" fill="#a7b3c2">The task, done means, what must never happen</text>
+
+    <rect x="120" y="122" width="360" height="74" rx="10" fill="#1b2129" stroke="#3a4656" stroke-width="1.5"/>
+    <text x="300" y="153" font-size="20" font-weight="700" fill="#e4eaf2">2. Claude writes the files</text>
+    <text x="300" y="179" font-size="16" fill="#a7b3c2">Skill, hooks, tools: a first version today</text>
+
+    <rect x="120" y="226" width="360" height="74" rx="10" fill="#1b2129" stroke="#3a4656" stroke-width="1.5"/>
+    <text x="300" y="257" font-size="20" font-weight="700" fill="#e4eaf2">3. You write the scenarios</text>
+    <text x="300" y="283" font-size="16" fill="#a7b3c2">Real tasks with answers you have checked</text>
+
+    <rect x="30" y="338" width="240" height="74" rx="10" fill="#1b2129" stroke="#81a8d6" stroke-width="2" stroke-dasharray="8 6"/>
+    <text x="150" y="369" font-size="20" font-weight="700" fill="#e4eaf2">A: baseline</text>
+    <text x="150" y="395" font-size="16" fill="#a7b3c2">Fresh subagent, no skill</text>
+
+    <rect x="330" y="338" width="240" height="74" rx="10" fill="#1b2129" stroke="#81a8d6" stroke-width="2" stroke-dasharray="8 6"/>
+    <text x="450" y="369" font-size="20" font-weight="700" fill="#e4eaf2">B: with the skill</text>
+    <text x="450" y="395" font-size="16" fill="#a7b3c2">Fresh subagent, skill loaded</text>
+
+    <rect x="190" y="452" width="220" height="84" rx="10" fill="#1b2129" stroke="#3a4656" stroke-width="1.5"/>
+    <text x="300" y="486" font-size="20" font-weight="700" fill="#e4eaf2">4. Blind grader</text>
+    <text x="300" y="512" font-size="16" fill="#a7b3c2">Which answers are right?</text>
+
+    <text x="572" y="522" font-size="16" fill="#81a8d6">5. Fix what it found</text>
+  </g>
+</svg>
