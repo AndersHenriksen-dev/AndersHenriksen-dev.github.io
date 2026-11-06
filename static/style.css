@@ -380,14 +380,12 @@ footer .card,
     border-top: 1px solid var(--border-color);
 }
 
-#blog .card-footer .btn,
 #blog .all-posts {
     border: 1px solid var(--primary-color);
     color: var(--text-link-color) !important;
     border-radius: .5rem;
 }
 
-#blog .card-footer .btn:hover,
 #blog .all-posts:hover {
     background-color: var(--accent-soft);
 }
@@ -512,14 +510,6 @@ footer .card,
     .card-carousel {
         --card-width: calc((100% - 2 * var(--card-gap)) / 2.1);
     }
-}
-
-/* The title's link covers the whole card. The footer buttons stay above it to keep their hover style. */
-#projects .card-footer .btn,
-#blog .card-footer .btn,
-#list-page .post-footer .btn {
-    position: relative;
-    z-index: 2;
 }
 
 /* ---------- Experience ---------- */

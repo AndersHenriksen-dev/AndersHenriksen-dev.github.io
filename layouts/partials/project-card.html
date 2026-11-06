@@ -17,13 +17,14 @@
                 {{ .Description | default (.Summary | plainify) | truncate 200 }}
             </p>
         </div>
+        {{ with .Params.links }}
         <div class="card-footer py-3 d-flex align-items-center">
-            {{ range .Params.links }}
+            {{ range . }}
             <a class="card-link-icon" href="{{ .url }}" target="_blank" rel="noopener" aria-label="{{ .name | default .url }}">
                 <i class="{{ .icon }}" aria-hidden="true"></i>
             </a>
             {{ end }}
-            <a class="btn btn-sm ms-auto" href="{{ .RelPermalink }}">Read the write-up</a>
         </div>
+        {{ end }}
     </div>
 </div>
