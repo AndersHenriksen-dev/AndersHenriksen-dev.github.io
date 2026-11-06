@@ -389,6 +389,128 @@ footer .card,
     background-color: var(--accent-soft);
 }
 
+/* ---------- Card carousels on the homepage ---------- */
+
+.card-carousel {
+    --card-gap: 12px;
+    --card-width: 86%;
+    --track-edge: .75rem;
+    position: relative;
+    /* On phones the row runs to the screen edge, so the next card shows at the side. */
+    margin: 1.5rem calc(-1 * var(--track-edge)) 0;
+}
+
+.card-track {
+    display: flex;
+    gap: var(--card-gap);
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-inline: var(--track-edge);
+    scroll-padding-inline: var(--track-edge);
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+}
+
+.card-track::-webkit-scrollbar {
+    display: none;
+}
+
+.card-track:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.card-track > * {
+    flex: 0 0 var(--card-width);
+    width: auto;
+    max-width: none;
+    margin: 0 !important;
+    padding: 0;
+    scroll-snap-align: start;
+}
+
+.card-track .card {
+    margin: 0 !important;
+}
+
+/* The track would clip the theme's hover lift. The border still marks the hovered card. */
+#projects .card-track .card:hover {
+    transform: none;
+}
+
+.card-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 44px;
+    height: 44px;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.card-carousel-arrow[hidden] {
+    display: none;
+}
+
+.card-carousel-arrow:hover:not(:disabled) {
+    border-color: var(--primary-color);
+    color: var(--text-link-color);
+}
+
+.card-carousel-arrow:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.card-carousel-arrow:disabled {
+    opacity: .35;
+    cursor: default;
+}
+
+.card-carousel-prev {
+    left: 0;
+}
+
+.card-carousel-next {
+    right: 0;
+}
+
+/* Phones and other touch screens swipe, so they get no arrows. */
+@media (max-width: 767.98px), (hover: none) {
+    .card-carousel-arrow {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-carousel {
+        --card-gap: 20px;
+        --card-width: 62%;
+        --track-edge: 0px;
+        margin-inline: 0;
+        padding-inline: 56px;
+    }
+
+    .card-track {
+        justify-content: safe center;
+    }
+}
+
+/* Two cards and a sliver of the third. */
+@media (min-width: 992px) {
+    .card-carousel {
+        --card-width: calc((100% - 2 * var(--card-gap)) / 2.1);
+    }
+}
+
 /* ---------- Experience ---------- */
 
 #experience .tab-pane > * {

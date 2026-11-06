@@ -36,6 +36,7 @@ Hugo is the extended edition, 0.168.0 or newer (`winget install Hugo.Hugo.Extend
 - `content/blogs/`: blog posts.
 - `static/images/`: the profile photo (`me.jpg`, square, black and white), project screenshots in `projects/`, post images in `blogs/`. `static/fav.png` is the logo and favicon.
 - `layouts/`: the theme's templates. Change them here; there is no theme submodule. `layouts/_default/single.html` renders posts and project pages.
+- `layouts/partials/card-carousel.html`: the sideways row of project and post cards on the homepage. Swiping uses the browser's own scrolling; `static/js/cardCarousel.js` only runs the desktop arrows.
 - `static/css/`: the theme's CSS, left as it is. `static/style.css`: the site's own CSS, loaded last (`params.customCSS`), with every override.
 - Colors: the whole palette is built from one color, `params.color.base` in `hugo.yaml`. Each role (page, card, border, text, link, button fill) has a fixed HSV value and a saturation cap, listed with its worst-case contrast at the top of `static/style.css`. `params.color.darkmode` holds the same palette as fixed colors for browsers without CSS relative colors.
 - `archetypes/projects.md`: the template for a new project page.

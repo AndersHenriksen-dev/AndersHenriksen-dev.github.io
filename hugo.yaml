@@ -236,7 +236,7 @@ params:
   blog:
     enable: true
     title: "Blog"
-    count: 2
+    count: 6
 
   contact:
     enable: true
