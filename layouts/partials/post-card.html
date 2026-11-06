@@ -15,13 +15,12 @@
                 {{ .Description | default (.Summary | plainify) | truncate 200 }}
             </p>
         </div>
+        {{ with .GetTerms "tags" }}
         <div class="card-footer py-3 d-flex align-items-center">
-            {{ with .GetTerms "tags" }}
             <span>
                 {{ range . }}<span class="badge">{{ .LinkTitle }}</span>{{ end }}
             </span>
-            {{ end }}
-            <a class="btn btn-sm ms-auto" href="{{ .RelPermalink }}">Read the post</a>
         </div>
+        {{ end }}
     </div>
 </div>
