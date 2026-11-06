@@ -304,6 +304,9 @@ footer .card,
 }
 
 #projects .card-link-icon {
+    /* Above the title's link, which covers the whole card. */
+    position: relative;
+    z-index: 2;
     font-size: 1.4rem;
     padding: .5rem;
     margin-left: -.5rem;
@@ -509,6 +512,14 @@ footer .card,
     .card-carousel {
         --card-width: calc((100% - 2 * var(--card-gap)) / 2.1);
     }
+}
+
+/* The title's link covers the whole card. The footer buttons stay above it to keep their hover style. */
+#projects .card-footer .btn,
+#blog .card-footer .btn,
+#list-page .post-footer .btn {
+    position: relative;
+    z-index: 2;
 }
 
 /* ---------- Experience ---------- */

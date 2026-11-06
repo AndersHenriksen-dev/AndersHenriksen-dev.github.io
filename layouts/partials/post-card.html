@@ -9,7 +9,7 @@
         <div class="card-body bg-transparent p-3">
             <small class="post-meta">{{ .Date | time.Format ":date_long" }}, {{ .ReadingTime }} min read</small>
             <h4 class="card-title bg-transparent">
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <a class="stretched-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
             </h4>
             <p class="card-text bg-transparent secondary-font">
                 {{ .Description | default (.Summary | plainify) | truncate 200 }}
