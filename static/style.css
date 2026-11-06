@@ -390,6 +390,17 @@ footer .card,
     background-color: var(--accent-soft);
 }
 
+/* The theme colors list page titles only on h5 elements. Here they are h2, with the h5 style. */
+#list-page a.card-title,
+#list-page a.card-title h2 {
+    color: var(--text-color) !important;
+}
+
+#list-page a.card-title:hover,
+#list-page a.card-title:hover h2 {
+    color: var(--text-link-color) !important;
+}
+
 /* ---------- Card carousels on the homepage ---------- */
 
 .card-carousel {
