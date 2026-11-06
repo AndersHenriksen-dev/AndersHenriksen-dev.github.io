@@ -5,6 +5,7 @@
 
 <!-- fontawesome -->
 <script defer src="{{ (printf "%sfontawesome-6/all-6.4.2.js" (.Site.Params.staticPath | default "")) | relURL }}"></script>
+<script defer src="{{ (printf "%sjs/cardCarousel.js" (.Site.Params.staticPath | default "")) | relURL }}"></script>
 {{ end }}
 
 {{ define "title" }}

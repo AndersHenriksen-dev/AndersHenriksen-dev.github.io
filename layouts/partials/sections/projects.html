@@ -42,12 +42,14 @@
                 </div>
             </div>
             {{ end }}
-            {{ range ( where .Site.RegularPages "Type" "projects" ) }}
-            {{ if .Params.showInHome | default true }}
-            {{- partial "project-card.html" . -}}
-            {{ end }}
-            {{ end }}
         </div>
+        {{- $cards := "" -}}
+        {{- range ( where .Site.RegularPages "Type" "projects" ) -}}
+        {{- if .Params.showInHome | default true -}}
+        {{- $cards = print $cards (partial "project-card.html" .) -}}
+        {{- end -}}
+        {{- end -}}
+        {{- partial "card-carousel.html" (dict "label" "projects" "cards" ($cards | safeHTML)) -}}
     </div>
 </section>
 {{ end }}

@@ -1,0 +1,12 @@
+{{- /* A row of cards that scrolls sideways: swipe on phones, arrows on desktop. Pass "label" and the rendered "cards". */ -}}
+<div class="card-carousel" data-card-carousel>
+    <button class="card-carousel-arrow card-carousel-prev" type="button" aria-label="Previous {{ .label }}" hidden>
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <div class="card-track" role="group" aria-label="{{ .label }}" tabindex="0">
+        {{- .cards -}}
+    </div>
+    <button class="card-carousel-arrow card-carousel-next" type="button" aria-label="Next {{ .label }}" hidden>
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+    </button>
+</div>
