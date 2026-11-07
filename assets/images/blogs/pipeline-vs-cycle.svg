@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 450" width="720" height="450" role="img" aria-label="Two timelines over the same 2 months. In the first, the work sits in the pipeline, and first use and first feedback only come at the end. In the second, a small version is in use near the start, and it gets better in steps as users show what to fix">
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#81a8d6"/>
+      <path d="M0 0 L10 5 L0 10 z" fill="{{ .accent }}"/>
     </marker>
   </defs>
-  <rect width="720" height="450" fill="#0d1114"/>
+  <rect width="720" height="450" fill="{{ .page }}"/>
 
-  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" fill="#e4eaf2">
+  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" fill="{{ .text }}">
     <text x="30" y="44" font-size="26" font-weight="700">Finish it first</text>
-    <rect x="30" y="64" width="520" height="60" rx="8" fill="#1b2129" stroke="#3a4656" stroke-width="1.5" stroke-dasharray="8 6"/>
-    <text x="290" y="102" font-size="22" fill="#a7b3c2" text-anchor="middle">In the pipeline, no one can use it</text>
-    <rect x="556" y="64" width="134" height="60" rx="8" fill="#1b2129" stroke="#81a8d6" stroke-width="2.5"/>
+    <rect x="30" y="64" width="520" height="60" rx="8" fill="{{ .card }}" stroke="{{ .border }}" stroke-width="1.5" stroke-dasharray="8 6"/>
+    <text x="290" y="102" font-size="22" fill="{{ .secondary }}" text-anchor="middle">In the pipeline, no one can use it</text>
+    <rect x="556" y="64" width="134" height="60" rx="8" fill="{{ .card }}" stroke="{{ .accent }}" stroke-width="2.5"/>
     <text x="623" y="102" font-size="22" font-weight="700" text-anchor="middle">First use</text>
 
     <text x="30" y="188" font-size="26" font-weight="700">Build, measure, learn</text>
-    <g fill="#1b2129" stroke="#81a8d6" stroke-width="2.5">
+    <g fill="{{ .card }}" stroke="{{ .accent }}" stroke-width="2.5">
       <rect x="30" y="320" width="124" height="50" rx="6"/>
       <rect x="164" y="286" width="124" height="84" rx="6"/>
       <rect x="298" y="258" width="124" height="112" rx="6"/>
@@ -22,17 +22,17 @@
       <rect x="566" y="206" width="124" height="164" rx="6"/>
     </g>
     <text x="92" y="353" font-size="22" font-weight="700" text-anchor="middle">Small</text>
-    <text x="92" y="306" font-size="20" fill="#a7b3c2" text-anchor="middle">In use</text>
-    <text x="226" y="335" font-size="20" fill="#a7b3c2" text-anchor="middle">fix</text>
-    <text x="360" y="321" font-size="20" fill="#a7b3c2" text-anchor="middle">fix</text>
-    <text x="494" y="308" font-size="20" fill="#a7b3c2" text-anchor="middle">fix</text>
-    <text x="628" y="295" font-size="20" fill="#a7b3c2" text-anchor="middle">fix</text>
+    <text x="92" y="306" font-size="20" fill="{{ .secondary }}" text-anchor="middle">In use</text>
+    <text x="226" y="335" font-size="20" fill="{{ .secondary }}" text-anchor="middle">fix</text>
+    <text x="360" y="321" font-size="20" fill="{{ .secondary }}" text-anchor="middle">fix</text>
+    <text x="494" y="308" font-size="20" fill="{{ .secondary }}" text-anchor="middle">fix</text>
+    <text x="628" y="295" font-size="20" fill="{{ .secondary }}" text-anchor="middle">fix</text>
   </g>
 
-  <g fill="none" stroke="#81a8d6" stroke-width="2.5">
+  <g fill="none" stroke="{{ .accent }}" stroke-width="2.5">
     <path d="M30 400 H684" marker-end="url(#arrow)"/>
   </g>
-  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#a7b3c2">
+  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="{{ .secondary }}">
     <text x="30" y="430">Start</text>
     <text x="690" y="430" text-anchor="end">2 months</text>
   </g>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560" role="img" aria-label="A Python file drawn as a page. Small functions sit at the top, and the most general function sits at the bottom, where each of its lines points up at a chapter above">
+  <defs>
+    <marker id="head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="{{ .accent }}"/>
+    </marker>
+  </defs>
+  <rect width="720" height="560" fill="{{ .page }}"/>
+  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" fill="{{ .secondary }}" font-size="17">
+    <text x="62" y="46" text-anchor="middle">details</text>
+    <text x="62" y="530" text-anchor="middle">the story</text>
+  </g>
+  <path d="M62 64 V504" stroke="{{ .secondary }}" stroke-width="2" fill="none"/>
+  <path d="M55 494 L62 508 L69 494" stroke="{{ .secondary }}" stroke-width="2" fill="none" stroke-linejoin="round"/>
+
+  <rect x="110" y="24" width="500" height="516" rx="14" fill="{{ .card }}" stroke="{{ .border }}" stroke-width="1.5"/>
+  <g font-family="ui-monospace, Cascadia Code, Consolas, Menlo, monospace" font-size="19">
+    <text x="134" y="60" fill="{{ .secondary }}" font-size="17">report.py</text>
+    <g fill="{{ .text }}">
+      <rect x="130" y="78" width="460" height="52" rx="8" fill="{{ .page }}" stroke="{{ .border }}"/>
+      <text x="148" y="111">def read_invoices(...)</text>
+      <rect x="130" y="142" width="460" height="52" rx="8" fill="{{ .page }}" stroke="{{ .border }}"/>
+      <text x="148" y="175">def format_line(...)</text>
+      <rect x="130" y="206" width="460" height="52" rx="8" fill="{{ .page }}" stroke="{{ .border }}"/>
+      <text x="148" y="239">def format_report(...)</text>
+    </g>
+    <rect x="130" y="290" width="460" height="230" rx="8" fill="{{ .page }}" stroke="{{ .accent }}" stroke-width="2.5"/>
+    <text x="148" y="326" fill="{{ .text }}" font-weight="700">def write_late_fee_report(...)</text>
+    <g font-size="18" fill="{{ .text }}">
+      <text x="172" y="372">read_invoices()</text>
+      <text x="172" y="416">find_late_fees()</text>
+      <text x="172" y="460">format_report()</text>
+      <text x="172" y="504">write_text()</text>
+    </g>
+  </g>
+  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="{{ .secondary }}">
+    <text x="372" y="372">chapter 1</text>
+    <text x="372" y="416">chapter 2, in fees.py</text>
+    <text x="372" y="460">chapter 3</text>
+    <text x="372" y="504">the last page</text>
+  </g>
+  <g fill="none" stroke="{{ .accent }}" stroke-width="2">
+    <path d="M462 366 H640 V104 H600" marker-end="url(#head)"/>
+    <path d="M532 454 H664 V232 H600" marker-end="url(#head)"/>
+  </g>
+</svg>

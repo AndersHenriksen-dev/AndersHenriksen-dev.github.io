@@ -21,7 +21,10 @@
    accent       84%        40%         5.5 on the page, 4.9 on a card (links, the name, active states)
    fill         38%        65%         text on it 5.6 (filled buttons)
 
-   In hwb(), whiteness is (1 - saturation) x value and blackness is 1 - value. */
+   In hwb(), whiteness is (1 - saturation) x value and blackness is 1 - value.
+
+   layouts/partials/palette-colors.html does the same calculation for the graphics in assets/images/,
+   so a change to a value or a cap here must be made there too. */
 
 :root {
     /* The HSV saturation of a color, from its hwb() whiteness w and blackness b. Black gives 0. */

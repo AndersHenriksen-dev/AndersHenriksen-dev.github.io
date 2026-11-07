@@ -1,0 +1,10 @@
+{{- /*
+    Publishes every SVG in assets/images/ at the same path under /images/, with its {{ .role }}
+    placeholders filled in from the palette. Pages keep linking to /images/... as they do for any
+    other image. Run from the home page, which every build renders.
+*/ -}}
+{{- $palette := partial "palette-colors.html" . -}}
+{{- range resources.Match "images/**.svg" -}}
+    {{- $graphic := resources.ExecuteAsTemplate .Name $palette . -}}
+    {{- $graphic.Publish -}}
+{{- end -}}

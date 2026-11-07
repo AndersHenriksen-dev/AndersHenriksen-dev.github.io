@@ -34,17 +34,18 @@ Hugo is the extended edition, 0.168.0 or newer (`winget install Hugo.Hugo.Extend
 - `hugo.yaml`: all homepage text (hero, about, skills, experience, education, contact), the navbar, footer, colors and theme settings.
 - `content/projects/`: one page per project. A project is a write-up of what it is and what I learned, with a GitHub link in `links:` that shows as a button under the title. The text before `<!--more-->` is the summary on the project card.
 - `content/blogs/`: blog posts.
-- `static/images/`: the profile photo (`me.jpg`, square, black and white), project screenshots in `projects/`, post images in `blogs/`. `static/fav.png` is the logo and favicon.
+- `assets/images/`: the graphics that follow the palette, as SVGs with colors written as placeholders such as `fill="{{ .accent }}"`. The roles are `page`, `card`, `border`, `muted`, `secondary`, `text`, `accent` and `fill`. `layouts/partials/palette-graphics.html` fills them in and publishes each file at the same path under `/images/`, so a post links to `/images/blogs/my-graphic.svg`. Open a file through `hugo server`, since the source is not valid on its own.
+- `static/images/`: images with fixed colors: the profile photo (`me.jpg`, square, black and white), project screenshots and the PNG/JPG social previews in `projects/`. `static/fav.png` is the logo and favicon.
 - `layouts/`: the theme's templates. Change them here; there is no theme submodule. `layouts/_default/single.html` renders posts and project pages.
 - `layouts/partials/card-carousel.html`: the sideways row of project and post cards on the homepage. Swiping uses the browser's own scrolling; `static/js/cardCarousel.js` only runs the desktop arrows.
 - `static/css/`: the theme's CSS, left as it is. `static/style.css`: the site's own CSS, loaded last (`params.customCSS`), with every override.
-- Colors: the whole palette is built from one color, `params.color.base` in `hugo.yaml`. Each role (page, card, border, text, link, button fill) has a fixed HSV value and a saturation cap, listed with its worst-case contrast at the top of `static/style.css`. `params.color.darkmode` holds the same palette as fixed colors for browsers without CSS relative colors.
+- Colors: the whole palette is built from one color, `params.color.base` in `hugo.yaml`. Each role (page, card, border, text, link, button fill) has a fixed HSV value and a saturation cap, listed with its worst-case contrast at the top of `static/style.css`. `params.color.darkmode` holds the same palette as fixed colors for browsers without CSS relative colors. `layouts/partials/palette-colors.html` calculates the palette for the graphics in `assets/images/`.
 - `archetypes/projects.md`: the template for a new project page.
 
 ## Rules
 
 - The site is always dark (`params.theme.defaultTheme: dark`, no toggle). Check every change in dark mode, at desktop and at phone width (375 px).
-- To change the colors, change `params.color.base`, not single colors. If a role's value or cap changes, check its contrast over every hue again: blue is the darkest hue at any HSV value. Update the `darkmode` fallbacks to match.
+- To change the colors, change `params.color.base`, not single colors. If a role's value or cap changes, check its contrast over every hue again: blue is the darkest hue at any HSV value. Update the `darkmode` fallbacks and `layouts/partials/palette-colors.html` to match. Social previews (`images:` in front matter) must be PNG or JPG, so they keep their colors: export them again if the base color changes.
 - Every page must build with `--panicOnWarning`.
 - Contact email is `anhenr.dev@gmail.com`.
 - Nothing private goes on the site: no salary, no internal workplace matters, no job search details. My notes outside this repo are private; only CV-level facts are public.

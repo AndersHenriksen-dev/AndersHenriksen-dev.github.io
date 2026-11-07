@@ -47,10 +47,11 @@ params:
   customCSS: true
 
   color:
-    # The one color the whole palette is built from: pick any color, black and
+    # The one color the whole palette is built from: any hex color, black and
     # white included. It gives the hue and saturation; every role (page, cards,
     # text, links, buttons) keeps a fixed HSV value, so all of them stay readable.
     # The roles and their contrast are listed at the top of static/style.css.
+    # The graphics in assets/images/ follow it too.
     base: "#3b74b8"
     # The same palette as fixed colors, for browsers without CSS relative colors.
     darkmode:
