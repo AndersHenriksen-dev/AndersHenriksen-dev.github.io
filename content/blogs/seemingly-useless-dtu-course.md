@@ -49,7 +49,7 @@ If I had built the complete agent first, I would have finished something that wr
 
 ## No finish line: Saga
 
-At Capital Four, I built an AI colleague for my team and called it Saga, because it finishes and holds all of the team's user stories.
+At Capital Four, I built an AI colleague for my team and called it Saga, after the Nordic goddess of stories. It finishes and holds all of the team's user stories.
 
 I put the skeleton together within the first month. It held the docs from Confluence and our SQL code, and nothing else. The rest came later:
 
