@@ -1,0 +1,56 @@
+{{- /*
+    Returns the site palette as hex colors, from params.color.base. The graphics in assets/images/
+    use these. It is the same calculation as the palette at the top of static/style.css, so a change
+    to a role's value or saturation cap must be made in both places.
+
+    In HSV, a channel is value x (1 - saturation x (1 - hue channel)), where the hue channel is the
+    base's channel scaled so that its lowest is 0 and its highest is 1.
+*/ -}}
+{{- $base := site.Params.color.base | default "#3b74b8" -}}
+{{- $hex := $base | lower | strings.TrimPrefix "#" -}}
+{{- if eq (len $hex) 3 -}}
+    {{- $hex = printf "%s%s%s%s%s%s" (substr $hex 0 1) (substr $hex 0 1) (substr $hex 1 1) (substr $hex 1 1) (substr $hex 2 1) (substr $hex 2 1) -}}
+{{- end -}}
+{{- if not (findRE `^[0-9a-f]{6}$` $hex) -}}
+    {{- errorf "params.color.base must be a hex color such as #3b74b8, got %q" $base -}}
+{{- end -}}
+
+{{- $channels := slice -}}
+{{- range slice 0 2 4 -}}
+    {{- $channels = $channels | append (float (int (printf "0x%s" (substr $hex . 2)))) -}}
+{{- end -}}
+{{- $highest := math.Max $channels -}}
+{{- $lowest := math.Min $channels -}}
+{{- $saturation := 0.0 -}}
+{{- if gt $highest 0.0 -}}
+    {{- $saturation = div (sub $highest $lowest) $highest -}}
+{{- end -}}
+
+{{- /* Each role is its HSV value and saturation cap. */ -}}
+{{- $roles := dict
+    "page" (slice 0.08 0.35)
+    "card" (slice 0.16 0.35)
+    "border" (slice 0.34 0.35)
+    "muted" (slice 0.66 0.20)
+    "secondary" (slice 0.76 0.14)
+    "text" (slice 0.95 0.06)
+    "accent" (slice 0.84 0.40)
+    "fill" (slice 0.38 0.65)
+-}}
+
+{{- $palette := dict -}}
+{{- range $name, $role := $roles -}}
+    {{- $value := index $role 0 -}}
+    {{- $roleSaturation := math.Min $saturation (index $role 1) -}}
+    {{- $color := "#" -}}
+    {{- range $channels -}}
+        {{- $hue := 0.0 -}}
+        {{- if gt $highest $lowest -}}
+            {{- $hue = div (sub . $lowest) (sub $highest $lowest) -}}
+        {{- end -}}
+        {{- $level := mul 255.0 $value (sub 1.0 (mul $roleSaturation (sub 1.0 $hue))) -}}
+        {{- $color = printf "%s%02x" $color (int (math.Round $level)) -}}
+    {{- end -}}
+    {{- $palette = merge $palette (dict $name $color) -}}
+{{- end -}}
+{{- return $palette -}}
