@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560" role="img" aria-label="A loop of three equal circles joined by arrows. Build: the smallest version people can use. Measure: talk to them and watch them use it. Learn: decide what to change next. The arrow from Learn leads back to Build">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#81a8d6"/>
+    </marker>
+  </defs>
+  <rect width="720" height="560" fill="#0d1114"/>
+
+  <g fill="none" stroke="#81a8d6" stroke-width="2.5">
+    <path d="M474.7 166.2 A200 200 0 0 1 559.2 312.6" marker-end="url(#arrow)"/>
+    <path d="M444.5 511.3 A200 200 0 0 1 275.5 511.3" marker-end="url(#arrow)"/>
+    <path d="M160.8 312.6 A200 200 0 0 1 245.3 166.2" marker-end="url(#arrow)"/>
+  </g>
+
+  <g fill="#1b2129" stroke="#81a8d6" stroke-width="2.5">
+    <circle cx="360" cy="130" r="110"/>
+    <circle cx="533.2" cy="430" r="110"/>
+    <circle cx="186.8" cy="430" r="110"/>
+  </g>
+
+  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <g font-size="30" font-weight="700" fill="#e4eaf2">
+      <text x="360" y="116">Build</text>
+      <text x="533.2" y="416">Measure</text>
+      <text x="186.8" y="416">Learn</text>
+    </g>
+    <g font-size="20" fill="#a7b3c2">
+      <text x="360" y="150">The smallest version</text>
+      <text x="360" y="176">people can use</text>
+      <text x="533.2" y="450">Talk to them and</text>
+      <text x="533.2" y="476">watch them use it</text>
+      <text x="186.8" y="450">Decide what to</text>
+      <text x="186.8" y="476">change next</text>
+    </g>
+  </g>
+</svg>
