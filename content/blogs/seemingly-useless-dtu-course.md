@@ -35,7 +35,7 @@ So I made the smallest version I could: a short blurb on each of the central sys
 
 I did not have to guess which details were worth writing, because the model's mistakes showed me.
 
-![Two timelines over the same 2 months, drawn as a sketch and not from data. In the first, the work sits in the pipeline, and first use and first feedback only come at the end. In the second, a small version is in use near the start, and it gets better in steps as users show what to fix](/images/blogs/pipeline-vs-cycle.svg)
+![Two timelines over the same 2 months. In the first, the work sits in the pipeline, and first use and first feedback only come at the end. In the second, a small version is in use near the start, and it gets better in steps as users show what to fix](/images/blogs/pipeline-vs-cycle.svg)
 
 ## What I could not have guessed: the SAS agent
 

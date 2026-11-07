@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 510" width="720" height="510" role="img" aria-label="Two timelines over the same 2 months, drawn as a sketch and not from data. In the first, the work sits in the pipeline, and first use and first feedback only come at the end. In the second, a small version is in use near the start, and it gets better in steps as users show what to fix">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 450" width="720" height="450" role="img" aria-label="Two timelines over the same 2 months. In the first, the work sits in the pipeline, and first use and first feedback only come at the end. In the second, a small version is in use near the start, and it gets better in steps as users show what to fix">
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
       <path d="M0 0 L10 5 L0 10 z" fill="#81a8d6"/>
     </marker>
   </defs>
-  <rect width="720" height="510" fill="#0d1114"/>
+  <rect width="720" height="450" fill="#0d1114"/>
 
   <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" fill="#e4eaf2">
     <text x="30" y="44" font-size="26" font-weight="700">Finish it first</text>
@@ -35,7 +35,5 @@
   <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#a7b3c2">
     <text x="30" y="430">Start</text>
     <text x="690" y="430" text-anchor="end">2 months</text>
-    <text x="360" y="470" text-anchor="middle">A sketch, not data. Each fix comes from what</text>
-    <text x="360" y="496" text-anchor="middle">users ran into.</text>
   </g>
 </svg>
