@@ -73,8 +73,6 @@ The cycle depends on a small version that is safe to hand over, and not everythi
 
 You cannot give a bank half an IFRS9 Expected Credit Loss model to see what happens. When I co-owned the migration of those models to Python, we proved the new version through shadow production and regression testing until the numbers matched. There is still a loop in that, but nobody relies on the result until it is proven. The same goes for anything that moves money or cannot be undone, which is why I [keep a person there](/blogs/first-ai-agent-three-steps/#keep-a-person-where-it-matters).
 
-Small also does not mean broken. The blurbs in that first knowledge base were short, but they were useful from the first day. A small version nobody wants to use teaches you very little.
-
 ## What the course was really about
 
 I still think it is funny to make a computer scientist learn how to start a company. But I was wrong about what I was learning. The course looked like it was about startups. It was really about how to build anything for other people.
