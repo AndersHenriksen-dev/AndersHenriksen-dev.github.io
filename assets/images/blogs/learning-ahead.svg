@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480" role="img" aria-label="A timeline. In 2024, my master's was done, and I spent 6 months learning finance from a Yale course, the Atrioc YouTube channel and newsletters. In 2025, that led to my first job, at Danske Bank. In 2026, at Capital Four, I read the Claude docs end to end and then built Saga">
+  <rect width="720" height="480" fill="{{ .page }}"/>
+  <g transform="translate(60 0)">
+
+  <path d="M150 80 V400" stroke="{{ .border }}" stroke-width="3"/>
+  <g fill="{{ .accent }}" stroke="{{ .page }}" stroke-width="5">
+    <circle cx="150" cy="80" r="13"/>
+    <circle cx="150" cy="240" r="13"/>
+    <circle cx="150" cy="400" r="13"/>
+  </g>
+
+  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif">
+    <g font-size="26" font-weight="700" fill="{{ .accent }}" text-anchor="end">
+      <text x="116" y="89">2024</text>
+      <text x="116" y="249">2025</text>
+      <text x="116" y="409">2026</text>
+    </g>
+    <g font-size="25" font-weight="700" fill="{{ .text }}">
+      <text x="186" y="89">Master's done</text>
+      <text x="186" y="249">First job: Danske Bank</text>
+      <text x="186" y="409">Capital Four</text>
+    </g>
+    <g font-size="20" fill="{{ .secondary }}">
+      <text x="186" y="121">6 months learning finance: a Yale</text>
+      <text x="186" y="147">course, Atrioc and newsletters</text>
+      <text x="186" y="281">Data Scientist, Portfolio Intelligence</text>
+      <text x="186" y="441">Read the Claude docs end to end,</text>
+      <text x="186" y="467">then built Saga</text>
+    </g>
+  </g>
+  </g>
+</svg>
