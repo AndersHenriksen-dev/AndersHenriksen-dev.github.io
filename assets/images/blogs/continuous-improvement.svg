@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 570" width="720" height="570" role="img" aria-label="Two circles, one inside the other. The outer circle, with arrows running around it, is continuous improvement: a philosophy, used on me. The inner circle is build, measure, learn: a method, used on what I build">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="{{ .accent }}"/>
+    </marker>
+  </defs>
+  <rect width="720" height="570" fill="{{ .page }}"/>
+
+  <circle cx="360" cy="285" r="240" fill="{{ .card }}"/>
+  <g fill="none" stroke="{{ .accent }}" stroke-width="2.5">
+    <path d="M401.7 48.6 A240 240 0 0 1 401.7 521.4" marker-end="url(#arrow)"/>
+    <path d="M318.3 521.4 A240 240 0 0 1 318.3 48.6" marker-end="url(#arrow)"/>
+  </g>
+  <circle cx="360" cy="345" r="130" fill="{{ .page }}" stroke="{{ .accent }}" stroke-width="2.5"/>
+
+  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="360" y="148" font-size="27" font-weight="700" fill="{{ .text }}">Continuous improvement</text>
+    <text x="360" y="180" font-size="21" fill="{{ .secondary }}">A philosophy, used on me</text>
+
+    <text x="360" y="332" font-size="23" font-weight="700" fill="{{ .text }}">Build, measure, learn</text>
+    <text x="360" y="366" font-size="20" fill="{{ .secondary }}">A method, used on</text>
+    <text x="360" y="392" font-size="20" fill="{{ .secondary }}">what I build</text>
+  </g>
+</svg>
