@@ -4,7 +4,7 @@ date: 2026-11-07
 author: "Anders Henriksen"
 description: "A forced entrepreneurship course at DTU taught me the build-measure-learn cycle. I never planned to use it. It now shapes how I build tools for my colleagues, and three stories from work show why."
 image: /images/blogs/build-measure-learn.svg
-imageAlt: "A loop of three steps, using my SAS to Python agent as the example. Build: the smallest version that works, one script moved to Python. Measure: talk to the people using it, who found the classes frustrating to read. Learn: what you could not have guessed, that the code has to read from top to bottom like SAS. An arrow leads back to Build, and the loop repeats"
+imageAlt: "A loop of three equal circles joined by arrows. Build: the smallest version people can use. Measure: talk to them and watch them use it. Learn: decide what to change next. The arrow from Learn leads back to Build"
 tags: ["Ways of working", "AI", "Agents"]
 toc: true
 ---
