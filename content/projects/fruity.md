@@ -1,10 +1,10 @@
 ---
-title: "Fruity"
+title: "Food Classifier on Azure"
 date: 2026-11-08
 author: "Anders Henriksen"
 description: "A food image classifier run as a measured service on Azure for 24 hours: 91.66% on the Food-101 test set, 507,121 requests with 0 failures in a 20-hour load test, and a cost limit built into the infrastructure."
-image: /images/projects/fruity-cloud.png
-imageAlt: "Four charts of the API over 24 hours on Azure: about 420 requests per minute during a 20-hour steady load, average response time near 400 ms, 2 replicas for almost all of it, and memory flat at 43% of the limit"
+image: /images/projects/fruity-card-dishes.jpg
+imageAlt: "66 food photos in a grid, each named, from macarons and waffles to hamburgers and hot dogs, placed by how alike the model finds the dishes"
 thumbnail: /images/projects/fruity-card-dishes.jpg
 images:
   - /images/projects/fruity-card-dishes.jpg
@@ -48,6 +48,10 @@ You upload a photo of food and get the three most likely of 101 dishes, with a p
 | Memory over 20 hours | **43%** of the limit in the first hour and the last |
 
 With 101 classes, guessing is right about 1% of the time, not the 50% many people expect. The best published method without deep learning reached 50.76% on the same test set, so that is the fair line to compare with.
+
+What Azure measured over the 24 hours, with the 20-hour steady load shaded:
+
+![Four charts of the API over 24 hours on Azure: about 420 requests per minute during a 20-hour steady load, average response time near 400 ms, 2 replicas for almost all of it, and memory flat at 43% of the limit](/images/projects/fruity-cloud.png)
 
 ## What the model sees
 
