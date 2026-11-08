@@ -27,7 +27,7 @@ I took a food image classifier from a university group project and turned it int
 
 <!--more-->
 
-The starting point was the group project for the DTU course 02476 Machine Learning Operations, by William Diedrichsen Marstrand, Karl Byberg Ulbæk, August Semrau Andersen and me. It no longer ran, and its one result, about 76%, was on our own split at 100 by 100 pixels. The hand-in is tagged `dtu-2024` in the repo, and everything described here I added afterwards.
+It started as a group project in the DTU course 02476 Machine Learning Operations, which I decided to keep working on. The project no longer ran, and its one result, about 76%, was on our own split at 100 by 100 pixels. The hand-in is tagged `dtu-2024` in the repo, and everything described here I added afterwards.
 
 ![The group project in 2024 beside the fork now: data, model, serving, cloud, CI and monitoring](/images/projects/fruity-then-and-now.svg)
 
