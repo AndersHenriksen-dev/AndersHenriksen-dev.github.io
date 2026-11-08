@@ -41,12 +41,23 @@ You upload a photo of food and get the three most likely of 101 dishes, with a p
 |---|---|
 | Test accuracy, `convnext_tiny` as ONNX | **91.66%** top-1 on 25,250 images, 98.78% top-5 |
 | Without deep learning, same validation images | **12.84%** with colour, shape and texture features, against 88.13% for the model |
+| Photos from outside Food-101, one per dish | **90 of 101** right, 100 of 101 in the top 5 |
 | Steady load, 10 users for 20 hours | **507,121 requests, 0 failures**, p95 1,000 ms |
 | One API replica at 0.5 vCPU | about **3 requests per second** before requests queue |
 | Cold start, from zero replicas | median **47.9 seconds** |
 | Memory over 20 hours | **43%** of the limit in the first hour and the last |
 
 With 101 classes, guessing is right about 1% of the time, not the 50% many people expect. The best published method without deep learning reached 50.76% on the same test set, so that is the fair line to compare with.
+
+## What the model sees
+
+To show the model at work without republishing Food-101's photos, which may only be used for research, I took one openly licensed photo per dish from Wikimedia Commons, checked each by eye and credited every photographer in the [repo](https://github.com/AndersHenriksen-dev/fruity/blob/main/docs/images/photos/CREDITS.md). The model named 90 of the 101 right. Here is every ninth dish, so the sample was not picked by how well it did:
+
+![Twelve food photos, each with the model's three first answers and their probabilities, including clam chowder mistaken for chicken curry](/images/projects/fruity-gallery.jpg)
+
+And all 101 dishes, placed by how alike the model finds them. Nobody told it which dishes belong together, yet desserts, soups and pasta, salads and fried food each end up in their own region:
+
+![All 101 dishes as photos on a grid, with similar dishes next to each other](/images/projects/fruity-dish-map.jpg)
 
 ## What I learned
 
@@ -61,7 +72,7 @@ With 101 classes, guessing is right about 1% of the time, not the 50% many peopl
 
 ## Where it breaks
 
-- **Messier photos.** The test images were reviewed by hand. Photos from a phone may score lower, and the service has no drift detection to notice.
+- **Photos from elsewhere.** The test images were reviewed by hand. On 101 photos from outside the dataset it got 89% right, but one photo per dish is good to about 6 points either way, and the service has no drift detection to notice if its inputs change.
 - **Small scale.** The load came from one machine. It says nothing about much larger traffic.
 - **Cold starts.** Almost 48 seconds is long for a first visitor. A smaller image or one warm replica would help, at the cost of paying while idle.
 - **The final cost is not known yet.** Azure had not reported the compute usage when I finished. Everything else it reported came to 0.0009 DKK, and the replica history puts the compute at about half of the monthly free grant. I will add the real figure when Azure reports it.
