@@ -5,9 +5,9 @@ author: "Anders Henriksen"
 description: "A food image classifier run as a measured service on Azure for 24 hours: 91.66% on the Food-101 test set, 507,121 requests with 0 failures in a 20-hour load test, and a cost limit built into the infrastructure."
 image: /images/projects/fruity-cloud.png
 imageAlt: "Four charts of the API over 24 hours on Azure: about 420 requests per minute during a 20-hour steady load, average response time near 400 ms, 2 replicas for almost all of it, and memory flat at 43% of the limit"
-thumbnail: /images/projects/fruity-card.jpg
+thumbnail: /images/projects/fruity-card-dishes.jpg
 images:
-  - /images/projects/fruity-card.jpg
+  - /images/projects/fruity-card-dishes.jpg
 badges:
   - "Python"
   - "MLOps"
