@@ -101,8 +101,8 @@ I also use carb entries for more than meals. After fatty or protein-heavy food m
 The same data can say what to change in AAPS itself. I compare my profile with what AAPS actually did, apply published guidance (the international consensus on time in range, the AAPS documentation and John Walsh's dose guide), and cap every proposal at 20% per round:
 
 - **Lows first.** 5.8% of my readings were below 3.9 mmol/L, above the 4% limit, so the first change is a low target 0.5 mmol/L higher.
-- **Basal up 20% in every block.** In all 18 fasting stretches of 6 hours or more where glucose stayed steady and never went low, AAPS had to deliver more basal than my schedule to hold it there.
-- **Carb ratio only where the meals agree.** Meals needed more insulin than the ratio gave, but in the afternoon and evening more meals ended low than high, so only the morning ratio gets stronger (by 8%).
+- **Basal up 11 to 20% in every block**, as far as the 20% cap allows in the pump's 0.05 U/h steps. In all 18 fasting stretches of 6 hours or more where glucose stayed steady and never went low, AAPS had to deliver more basal than my schedule to hold it there.
+- **Carb ratio only where the meals agree.** Meals needed more insulin than the ratio gave, but in the afternoon and evening more meals ended low than high, so only the morning ratio gets stronger (by 7%).
 - **ISF unchanged.** Two estimates point in opposite directions, and only 5 clean corrections exist to settle it.
 
 A local website shows one page per setting: the rule, its sources, how sure the recommendation is, and real nights, meals and lows from my data as interactive charts. It runs on my own machine only.
