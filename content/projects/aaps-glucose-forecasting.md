@@ -96,6 +96,23 @@ I also use carb entries for more than meals. After fatty or protein-heavy food m
 - **Meals with lots of fat and protein.** Both forecasts make their largest errors after them, because the cause is not in the data.
 - **Not a dosing tool.** A better forecast on average is not the same as safer dosing. oref's caution around lows is there for a reason.
 
+## From forecast to settings and dosing
+
+The same data can say what to change in AAPS itself. I compare my profile with what AAPS actually did, apply published guidance (the international consensus on time in range, the AAPS documentation and John Walsh's dose guide), and cap every proposal at 20% per round:
+
+- **Lows first.** 5.8% of my readings were below 3.9 mmol/L, above the 4% limit, so the first change is a low target 0.5 mmol/L higher.
+- **Basal up 20% in every block.** In all 18 fasting stretches of 6 hours or more where glucose stayed steady and never went low, AAPS had to deliver more basal than my schedule to hold it there.
+- **Carb ratio only where the meals agree.** Meals needed more insulin than the ratio gave, but in the afternoon and evening more meals ended low than high, so only the morning ratio gets stronger (by 8%).
+- **ISF unchanged.** Two estimates point in opposite directions, and only 5 clean corrections exist to settle it.
+
+A local website shows one page per setting: the rule, its sources, how sure the recommendation is, and real nights, meals and lows from my data as interactive charts. It runs on my own machine only.
+
+I also let the learned model make the dosing decisions, in shadow. It replays every loop run in the test period with oref's own rules applied to the learned forecast, and hands the decision back to oref when data is stale, a forecast is implausible or its recent forecasts were off. It never sends anything to the pump. Over 5,696 loop runs it decided 98% itself, and agreed with oref within 0.25 U/h only 28% of the time:
+
+![In shadow, before a high the learned controller raised basal 51% of the time against oref's 21%; before a low it lowered basal about as often as oref, 67% against 69%](/images/projects/aaps-shadow-dosing.png)
+
+That is a comparison, not proof of safety. The model learned from data where AAPS was dosing, so it predicts glucose given that AAPS keeps dosing the same way. The next step is to run the same controller inside AAPS on my phone, in shadow, so its decisions can be judged on data it has never seen.
+
 ## How it works
 
 - **Data:** AAPS uploads to my own Nightscout server on a free-tier Google Cloud VM. A Python pipeline mirrors it through the API, converts everything to mmol/L and rebuilds the basal insulin delivered minute by minute from the temp basals and my profile.
@@ -103,4 +120,4 @@ I also use carb entries for more than meals. After fatty or protein-heavy food m
 - **Evaluation:** every method is scored on the same loop runs and targets as oref's forecast, with walk-forward weekly tests, and an ablation for each idea that did not work.
 - **Automation:** a Windows scheduled task syncs new data and retrains everything once a week, catches up after missed runs, and warns if AAPS stops uploading.
 
-The repo has the code, the results behind every number here, and 16 figures.
+The repo has the code, the results behind every number here, and 18 figures.
