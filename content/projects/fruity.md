@@ -1,6 +1,7 @@
 ---
 title: "Food Classifier on Azure"
 date: 2026-11-08
+weight: 30
 author: "Anders Henriksen"
 description: "A food image classifier run as a measured service on Azure for 24 hours: 91.66% on the Food-101 test set, 507,121 requests with 0 failures in a 20-hour load test, and a cost limit built into the infrastructure."
 image: /images/projects/fruity-card-dishes.jpg

@@ -1,6 +1,9 @@
 ---
 title: "{{ replace .File.ContentBaseName "-" " " | title }}"
 date: {{ .Date }}
+# Cards are ordered by weight, lowest first, not by date. 99 puts a new project last until you
+# choose where it belongs; the others are spaced 10 apart so there is room between any two.
+weight: 99
 draft: true
 author: "Anders Henriksen"
 description: ""
