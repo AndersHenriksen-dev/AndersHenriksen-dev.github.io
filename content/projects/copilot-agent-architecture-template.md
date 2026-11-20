@@ -1,6 +1,7 @@
 ---
 title: "Copilot Agent Architecture Template"
 date: 2026-11-20
+weight: 60
 author: "Anders Henriksen"
 description: "One small example that uses all seven ways to build with GitHub Copilot: instructions, prompt files, skills, custom agents, subagents, hooks and MCP. It solves the same job as my Claude template, so the two can be compared."
 image: /images/projects/copilot-agent-template-card.svg
