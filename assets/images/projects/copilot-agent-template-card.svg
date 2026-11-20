@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="A list of GitHub Copilot's seven types and what each does in the example: instructions for Decimal money scoped by applyTo, a prompt file that checks one claimed saving, a skill with the steps and a script, a read-only custom agent, a subagent that is not a file you write, hooks that deny an overstated saving, and five MCP tools over stdio with three over HTTP">
+  <rect width="960" height="600" fill="{{ .page }}"/>
+  <g fill="{{ .accent }}">
+    <rect x="29" y="112" width="6" height="52" rx="3"/>
+    <rect x="29" y="180" width="6" height="52" rx="3"/>
+    <rect x="29" y="248" width="6" height="52" rx="3"/>
+    <rect x="29" y="316" width="6" height="52" rx="3"/>
+    <rect x="29" y="452" width="6" height="52" rx="3"/>
+    <rect x="29" y="520" width="6" height="52" rx="3"/>
+  </g>
+  <rect x="29" y="384" width="6" height="52" rx="3" fill="{{ .muted }}"/>
+  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="29" y="51" font-size="26" font-weight="700" fill="{{ .text }}">Seven ways to build with Copilot. One example.</text>
+    <text x="29" y="84" font-size="16" fill="{{ .secondary }}">Each type's job in finding the subscriptions on a made-up statement.</text>
+
+    <g font-size="19" font-weight="700" fill="{{ .accent }}">
+      <text x="48" y="132">Instructions</text>
+      <text x="48" y="200">Prompt file</text>
+      <text x="48" y="268">Skill</text>
+      <text x="48" y="336">Custom agent</text>
+      <text x="48" y="472">Hooks</text>
+      <text x="48" y="540">MCP</text>
+    </g>
+    <text x="48" y="404" font-size="19" font-weight="700" fill="{{ .muted }}">Subagent</text>
+
+    <g font-size="18" fill="{{ .text }}">
+      <text x="48" y="158">Decimal for money. No advice. Three files scoped by applyTo</text>
+      <text x="48" y="226">/review-summary: check one claimed saving by hand</text>
+      <text x="48" y="294">find-subscriptions: the steps, the format and a script</text>
+      <text x="48" y="362">statement-auditor: an allowlist with nothing that writes</text>
+      <text x="48" y="498">Deny a saving above the latest charge. Refuse to stop unfinished</text>
+      <text x="48" y="566">Five tools over stdio, and the three read tools over HTTP</text>
+    </g>
+    <text x="48" y="430" font-size="18" fill="{{ .muted }}">Not a file you write, so there is nothing in the repository</text>
+  </g>
+</svg>
