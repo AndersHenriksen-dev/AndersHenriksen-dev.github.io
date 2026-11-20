@@ -1,6 +1,7 @@
 ---
 title: "Agent Injection Tests"
 date: 2026-11-05
+weight: 40
 author: "Anders Henriksen"
 description: "Can text in an email turn a tool-using Claude agent against its user? In 798 runs, planted instructions got through 0 of 504 times and plausible false data 47 of 147, and no defense clearly stopped it."
 image: /images/projects/injection-results.svg

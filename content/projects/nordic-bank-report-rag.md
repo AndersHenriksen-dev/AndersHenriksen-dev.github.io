@@ -1,6 +1,7 @@
 ---
 title: "Nordic Bank Report RAG"
 date: 2026-11-03
+weight: 20
 author: "Anders Henriksen"
 description: "Questions in English or Danish over twelve Nordic bank annual reports, answered with page citations. Recall@6 0.94 on a 44-question test set, at USD 0.001 per question."
 image: /images/projects/bank-rag-answer.png

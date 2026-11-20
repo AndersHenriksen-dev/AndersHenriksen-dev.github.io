@@ -1,6 +1,7 @@
 ---
 title: "Claude Agent Architecture Template"
 date: 2026-11-06
+weight: 50
 author: "Anders Henriksen"
 description: "One small example that uses all six ways to build with Claude: rules, skills, hooks, MCP, the API and connectors. It finds the subscriptions on a made-up bank statement."
 image: /images/projects/agent-template-card.svg

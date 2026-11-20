@@ -1,6 +1,7 @@
 ---
 title: "Beating My Insulin Pump's Glucose Forecast"
 date: 2026-11-14
+weight: 10
 author: "Anders Henriksen"
 description: "Ten weeks of my own data from an open-source automated insulin delivery system, and a learned model whose 60-minute glucose forecast has 31% lower error than the system's own algorithm, in every one of 7 test weeks."
 image: /images/projects/aaps-card.jpg
