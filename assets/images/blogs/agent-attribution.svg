@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 450" width="720" height="450" role="img" aria-label="Two columns. What the audit fixed: multi-stage deployment, a colleague's risk approval, change approval on high-risk cards, a fixed test and import process, and cards that carry refinement, acceptance criteria and test scenarios. What I changed: a skill for every SOP, an agent that works the cards, a board that logs the trail, and a page behind every card. Under both columns, work that took one to three days now lands inside a day">
+  <rect width="720" height="450" fill="{{ .page }}"/>
+
+  <g font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" fill="{{ .text }}">
+    <text x="30" y="40" font-size="24" font-weight="700">What the audit fixed</text>
+    <text x="375" y="40" font-size="24" font-weight="700">What I changed</text>
+
+    <rect x="30" y="58" width="315" height="262" rx="8" fill="{{ .card }}" stroke="{{ .border }}" stroke-width="1.5"/>
+    <rect x="375" y="58" width="315" height="262" rx="8" fill="{{ .card }}" stroke="{{ .accent }}" stroke-width="2.5"/>
+
+    <g font-size="18" fill="{{ .secondary }}">
+      <text x="54" y="100">Multi-stage deployment</text>
+      <text x="54" y="142">A colleague's risk approval</text>
+      <text x="54" y="184">Change approval on high risk</text>
+      <text x="54" y="226">A fixed test and import process</text>
+      <text x="54" y="268">Refinement, acceptance criteria</text>
+      <text x="54" y="292">and test scenarios on every card</text>
+
+      <text x="399" y="100">A skill for every SOP</text>
+      <text x="399" y="142">An agent that works them</text>
+      <text x="399" y="184">A board that logs the trail</text>
+      <text x="399" y="226">A page behind every card</text>
+    </g>
+
+    <g fill="{{ .accent }}">
+      <circle cx="42" cy="94" r="4"/>
+      <circle cx="42" cy="136" r="4"/>
+      <circle cx="42" cy="178" r="4"/>
+      <circle cx="42" cy="220" r="4"/>
+      <circle cx="42" cy="262" r="4"/>
+      <circle cx="387" cy="94" r="4"/>
+      <circle cx="387" cy="136" r="4"/>
+      <circle cx="387" cy="178" r="4"/>
+      <circle cx="387" cy="220" r="4"/>
+    </g>
+
+    <rect x="30" y="348" width="660" height="72" rx="8" fill="{{ .card }}" stroke="{{ .accent }}" stroke-width="2.5"/>
+    <text x="360" y="392" font-size="22" font-weight="700" text-anchor="middle">One to three days, now inside a day</text>
+  </g>
+</svg>
